@@ -1,0 +1,257 @@
+/*Font declaraion*/
+@font-face {
+  font-family: reddir-extrabold;
+  src: url(/assets/fonts/reddit/RedditSansFudge-ExtraBold-BF651644f142adf.ttf);
+}
+
+@font-face {
+  font-family: reddir-regular;
+  src: url(/assets/fonts/reddit/RedditSansVanilla-Regular-BF651644f0acea9.ttf);
+}
+
+@font-face {
+  font-family: reddir-light;
+  src: url(/assets/fonts/reddit/RedditSansChocolate-Light-BF651644f140815.ttf);
+}
+
+
+
+
+body {
+  background-color: #0a0c0d;
+  color: #ffffff;
+  margin: 0px;
+  font-family: reddir-light;
+  font-size: 11px;
+}
+
+.welcomePage {
+  z-index: 20;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  border-bottom: 1px solid #808d94;
+  background-color: #15191b;
+  overflow: hidden;
+}
+
+.welcomePageConts {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+}
+
+.welcomeSubConts {
+  display: flex;
+  align-items: center;
+  
+}
+
+.wraperContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0a0c0d;
+}
+
+.naviBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 30px;
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #808d94;
+  background-color: #15191b;
+}
+
+.rightsider {
+  display: flex;
+  gap: 10px;
+  display: flex;
+  align-items: center
+}
+
+
+
+.linkBtn{
+  display: flex;
+    gap: 7px;
+align-items: center;
+  padding: 3px;
+
+}
+
+
+.toggleMenu {
+  width: fit-content;
+  height: fit-content;
+  padding: 7px 15px;
+  font-size: 11px;
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  background-color: #15191b;
+  border-bottom: 2px solid #e93d00;
+}
+
+/*.........Anamtion for cloud1 bot ......*/
+#logoId {
+  animation: robot-move 3s infinite;
+}
+
+@keyframes robot-move {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  
+  20% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  
+  40% {
+    transform: translateY(5px) rotate(-5deg);
+  }
+  
+  60% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  
+  80% {
+    transform: translateY(5px) rotate(-5deg);
+  }
+  
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+
+
+.leftsider {
+  display: flex;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.loginBtn {
+  color: #ffffff;
+  background-color: #e93d00;
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  padding: 6px 12px;
+  font-family: reddir-regular;
+}
+
+.profileMenu {
+  padding: 5px;
+  border: 1px solid #e93d00;
+  border-radius: 50%;
+  display: flex;
+}
+
+.contents {
+  padding: 40px 30px;
+  margin-bottom: 50px;
+}
+
+.contentsSec {
+  padding: 30px 0px;
+}
+
+
+
+/*LOGIN PAGE*//
+.loginConts{
+  color: white;
+}
+
+.signupBtn {
+   color: #ffffff;
+   background-color: #e93d00;
+   border-radius: 40px;
+   outline: none;
+   border: none;
+   padding: 6px 30px;
+   font-family: reddir-regular;
+  150 }
+::placeholder{
+  color: grey;
+}
+input{
+  color: white;
+}
+
+
+
+
+
+/*floating Message cloud1 AI model*/
+.floatingMgs {
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  background-color: transparent;
+  border: 1px solid #e93d00;
+  border-radius: 50%;
+  background-color:#272626 ;
+}
+
+
+
+/*footer section*/
+.footer {
+  font-size: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 30px;
+  gap: 25%;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background-color: #15191b;
+  border-top: 1px solid #808d94;
+}
+
+.footerText {
+  text-align: center;
+}
+
+.iconCss {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0px;
+}
+
+#profilePrev{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+  margin: 3px;
+  background-color:#272626 ;
+  padding: 3px 12px;
+  border-radius: 5px;
+}
+.usrPrlEmail{
+  font-size: 9px;
+  color: grey;
+}
+.usrPrlusername{
+  margin-bottom:-7px;
+}

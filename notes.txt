@@ -1,0 +1,12 @@
+COLOR
+layout
+#0a0c0d
+#15191b
+#1d2326
+#e93d00
+
+
+text
+#808d94
+#00b01a
+#ffffff
