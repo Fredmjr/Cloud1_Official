@@ -22,3 +22,7 @@ res.render('components/cloud1AImodel')
 export const searchUrl = async (req, res)=>{
 res.render('components/search')
 }
+
+export const sgnpgUrl = async (req, res)=>{
+    res.render('components/signup')
+ }

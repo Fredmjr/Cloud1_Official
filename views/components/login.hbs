@@ -1,32 +1,26 @@
 <div class="loginPage">
 <div class="loginConts">
-  <p>Sign Up</p>
-  <div class="signup_usrNm">
-    <label>Username<label>
-    <input placeholder="Cloud One">
-  </div>
-
-  <div class="sgnup_phnNum">
-    <label>Phone Number<label>
-    <input placeholder="+260*********">
-  </div>
-  <div class="sgnup_emal">
+  <p>Login Page</p>
+  <div class="lgn_emal">
      <label>Email<label>
-     <input placeholder="cloud!@gmail.com">
+     <input name="lgn_eml"  class="lgn_eml_inpt" placeholder="cloud!@gmail.com">
   </div>
 
-  <div class="sgnup_pwd">
+  <div class="lgn_pwd">
    <label>Password<label>
-     <input type="password" placeholder="**********">
+     <input name="lgn_psswd" class="lgn_psswd_inpt" type="password" placeholder="**********">
   </div>
 
-  <div class="sgnup_pwd">
+  <div class="lgn_cfpswd_pwd">
    <label>Confirm Password<label>
-     <input type="password" placeholder="***********">
+     <input name="lgn_cfpsswd" class="lgn_cfmpsswd_inpt" type="password" placeholder="***********">
   </div>
-
-  <div class="signup_Btn">
-    <button class="signupBtn">Submit</button>
+  <p>Dont have an account? <span class="sgnpLink">Signup</span></p>
+  <div id="lgn_erMgs_pnl">
+      <p id="lgn_ermgs" style="display: none;"></p>
+  </div>
+  <div class="login_Btn">
+    <button  class="lgn_Btn">Submit</button>
   </div>
 </div>
 </div>

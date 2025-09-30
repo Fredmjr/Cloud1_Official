@@ -7,6 +7,7 @@ import {fileURLToPath} from 'url'
 
 
 const app = express()
+app.use(express.json());
 
 //views, components & files setup
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +21,7 @@ app.use(express.static("public"))
  
 //routes & comtrollers
 app.use('/app', appRouter)
-app.use("/user", userRouter);
+app.use("/usr", userRouter);
 app.use("/asset", assetRouter)
 app.get("/", (req, res)=>{
   res.render("index");

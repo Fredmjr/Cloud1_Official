@@ -1,1 +1,21 @@
-{"type":"module","dependencies":{"express":"^5.1.0","hbs":"^4.2.0"},"name":"cloud1","version":"1.0.0","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"author":"","license":"ISC","description":""}
+{
+    "type": "module",
+    "dependencies": {
+        "express": "^5.1.0",
+        "hbs": "^4.2.0"
+    },
+    "name": "cloud1",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon",
+        "buildapp": "node ./esbuild/esbuild.js && npm run dev"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "esbuild": "^0.25.10"
+    }
+}

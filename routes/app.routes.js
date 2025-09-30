@@ -1,5 +1,5 @@
 import express from 'express';
-import {loginUrl, homeUrl, notificationsUrl, libraryUrl, cloud1AImodelUrl, searchUrl} from '../controllers/app.controller.js'
+import {loginUrl, homeUrl, notificationsUrl, libraryUrl, cloud1AImodelUrl, searchUrl, sgnpgUrl} from '../controllers/app.controller.js'
 
 
 const router = express.Router();
@@ -10,5 +10,7 @@ router.get("/login", loginUrl)
 router.get("/library", libraryUrl)
 router.get("/cloud1AImodel", cloud1AImodelUrl)
 router.get("/search", searchUrl)
+router.get("/sgnpg", sgnpgUrl)
+
 
 export default router;
