@@ -20,26 +20,25 @@ if(sgnp_Home){
         if (nodesignup_Btn) {
           console.log("Sigubtn present")
           const sgnp_usrnm_inpt = document.querySelector('.sgnp_usrnm_inpt')
-          const sgnp_hnm_inpt = document.querySelector('.sgnp_phnm_inpt')
+          const sgnp_phnm_inpt = document.querySelector('.sgnp_phnm_inpt')
           const sgnp_eml_inpt = document.querySelector('.sgnp_eml_inpt')
           const sgnp_psswd_inpt = document.querySelector('.sgnp_psswd_inpt')
-          const sgnp_cfmpsswd_inpt = document.querySelector('.sgnp_cfmpsswd_inpt')
-
+          const sgnp_fmpsswd_inpt = document.querySelector('.sgnp_fmpsswd_inpt')
 
 
          nodesignup_Btn.addEventListener('click' , () => {
 
            console.log("submit form:")
            console.log(sgnp_usrnm_inpt.value, sgnp_phnm_inpt.value, sgnp_eml_inpt.value,
-                      sgnp_psswd_inpt.value, sgnp_cfmpsswd_inpt.value)
+                      sgnp_psswd_inpt.value, sgnp_fmpsswd_inpt.value)
 
 
             const lgdata = {
   usrnm: sgnp_usrnm_inpt.value,
-  pnm: sgnp_hnm_inpt.value,
+  pnm: sgnp_phnm_inpt.value,
   eml: sgnp_eml_inpt.value,
   pwd: sgnp_psswd_inpt.value,
-  conf_pwd: sgnp_cfmpsswd_inpt.value
+  conf_pwd: sgnp_fmpsswd_inpt.value
 };
 
 
