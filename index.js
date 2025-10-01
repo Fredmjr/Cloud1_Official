@@ -4,8 +4,11 @@ import appRouter from './routes/app.routes.js';
 import assetRouter from './routes/asset.routes.js';
 import path from "path"
 import {fileURLToPath} from 'url'
+import dotenv from "dotenv";
 
 
+
+dotenv.config();
 const app = express()
 app.use(express.json());
 

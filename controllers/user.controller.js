@@ -116,3 +116,6 @@ const {eml, pwd, conf_pwd} = req.body;
     console.log(error)
 
 }}
+
+
+console.log(process.env.SECRET_KEY)
