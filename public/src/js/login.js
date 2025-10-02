@@ -68,7 +68,19 @@ sgnpLink.addEventListener("click", ()=>{
             .then((data) => {
               //erMgs.innerHTML = data;
                 //erMgs.style.display = "block";
+                if (data.erMgs) {
                 console.log(data.erMgs);
+                } else if (data.jwtToken) {
+                  console.log(data.jwtToken);
+//Setup Token
+                    const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
+                    document.cookie =
+                        `lgrTkn=${encodeURIComponent(data.JwtToken)};` +
+                        `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`;                                                               //
+
+console.log(data.jwtToken);
+
+                }
             })
             .catch((error) => console.log(error));
 

@@ -1,4 +1,9 @@
 import express from 'express'
+import dotenv from "dotenv";
+dotenv.config();
+import jwt from "jsonwebtoken";
+
+
 
 
 export const allUsers = async (req, res) => {
@@ -88,11 +93,17 @@ const {eml, pwd, conf_pwd} = req.body;
                 if (pwd === conf_pwd){
 //password format
                 if (passwdVerify) {
-                    res.json({pass:'okay'})
-
 //db query data based on email and passsword
+const usr_data = {
+    name: "jerry",
+  };
+  const JWT = jwt.sign(usr_data, process.env.SECRET_KEY, {
+    expiresIn: "24h",
+  });
 
-
+                    res.json({
+                        jwtToken: JWT,
+                    })
 
 
 

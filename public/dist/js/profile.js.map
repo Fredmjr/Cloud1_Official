@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/js/profile.js"],
+  "sourcesContent": ["//Get token\n(\n  profiler = ()=>{\n\nlgrTknckie = (elem) => {\n  let ckies = document.cookie.split(\"; \");\n  for (let i = 0; i < ckies.length; i++) {\n    let cookie = ckies[i];\n    let [name, value] = cookie.split(\"=\");\n    if (name === elem) {\n      return decodeURIComponent(value);\n    }\n  }\n  return null;\n};\n\nlet lgrTknckie_Home = lgrTknckie(\"lgrTkn\");\nconsole.log(lgrTknckie_Home);\n})();\n"],
+  "mappings": "gFAEE,SAAWA,EAAA,IAAI,CAEjB,WAAaA,EAACC,GAAS,CACrB,IAAIC,EAAQ,SAAS,OAAO,MAAM,IAAI,EACtC,QAASC,EAAI,EAAGA,EAAID,EAAM,OAAQC,IAAK,CACrC,IAAIC,EAASF,EAAMC,CAAC,EAChB,CAACE,EAAMC,CAAK,EAAIF,EAAO,MAAM,GAAG,EACpC,GAAIC,IAASJ,EACX,OAAO,mBAAmBK,CAAK,CAEnC,CACA,OAAO,IACT,EAVa,cAYb,IAAIC,EAAkB,WAAW,QAAQ,EACzC,QAAQ,IAAIA,CAAe,CAC3B,EAhBa,aAgBV",
+  "names": ["__name", "elem", "ckies", "i", "cookie", "name", "value", "lgrTknckie_Home"]
+}
