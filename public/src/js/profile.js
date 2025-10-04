@@ -15,5 +15,21 @@ lgrTknckie = (elem) => {
 };
 
 let lgrTknckie_Home = lgrTknckie("lgrTkn");
-console.log(lgrTknckie_Home);
+    //Profiler
+    const Tk_data={
+      prflr_tkn: lgrTknckie_Home,
+    }
+      fetch("/usr/prflr", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // 'Authorization': 'Bearer YOUR_TOKEN',
+      },
+      body: JSON.stringify(Tk_data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
 })();

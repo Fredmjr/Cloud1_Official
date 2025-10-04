@@ -129,4 +129,15 @@ const usr_data = {
 }}
 
 
-console.log(process.env.SECRET_KEY)
+
+//Auto-Prolder controller
+export const prflrUrl = async (req, res) => {
+    const { prflr_tkn } = req.body;
+  try {
+      res.json({
+          name: 'cloud1_name',
+      })
+  } catch (err) {
+      console.log(err)
+  }
+}

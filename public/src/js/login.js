@@ -75,7 +75,7 @@ sgnpLink.addEventListener("click", ()=>{
 //Setup Token
                     const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
                     document.cookie =
-                        `lgrTkn=${encodeURIComponent(data.JwtToken)};` +
+                        `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
                         `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`;                                                               //
 
 console.log(data.jwtToken);
