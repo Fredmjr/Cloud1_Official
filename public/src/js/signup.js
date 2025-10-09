@@ -1,15 +1,10 @@
-const sgnp_Home = document.querySelector('.contentsSec')
+const sgnp_Home = document.querySelector(".contentsSec");
 
-
-
-
-
-if(sgnp_Home){
-  console.log('present')
+if (sgnp_Home) {
+  console.log("present");
 }
 
-
-(SgnpFuc= () => {
+(SgnpFuc = () => {
   const sgnpobsrvr = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
@@ -18,52 +13,57 @@ if(sgnp_Home){
           : node.querySelector?.(".sgnp_Btn");
 
         if (nodesignup_Btn) {
-          console.log("Sigubtn present")
-          const sgnp_usrnm_inpt = document.querySelector('.sgnp_usrnm_inpt')
-          const sgnp_phnm_inpt = document.querySelector('.sgnp_phnm_inpt')
-          const sgnp_eml_inpt = document.querySelector('.sgnp_eml_inpt')
-          const sgnp_psswd_inpt = document.querySelector('.sgnp_psswd_inpt')
-          const sgnp_fmpsswd_inpt = document.querySelector('.sgnp_fmpsswd_inpt')
+          console.log("Sigubtn present");
+          const sgnp_usrnm_inpt = document.querySelector(".sgnp_usrnm_inpt");
+          const sgnp_phnm_inpt = document.querySelector(".sgnp_phnm_inpt");
+          const sgnp_eml_inpt = document.querySelector(".sgnp_eml_inpt");
+          const sgnp_psswd_inpt = document.querySelector(".sgnp_psswd_inpt");
+          const sgnp_fmpsswd_inpt =
+            document.querySelector(".sgnp_fmpsswd_inpt");
 
-
-         nodesignup_Btn.addEventListener('click' , () => {
-
-           console.log("submit form:")
-           console.log(sgnp_usrnm_inpt.value, sgnp_phnm_inpt.value, sgnp_eml_inpt.value,
-                      sgnp_psswd_inpt.value, sgnp_fmpsswd_inpt.value)
-
+          nodesignup_Btn.addEventListener("click", () => {
+            console.log("submit form:");
+            console.log(
+              sgnp_usrnm_inpt.value,
+              sgnp_phnm_inpt.value,
+              sgnp_eml_inpt.value,
+              sgnp_psswd_inpt.value,
+              sgnp_fmpsswd_inpt.value
+            );
 
             const lgdata = {
-  usrnm: sgnp_usrnm_inpt.value,
-  pnm: sgnp_phnm_inpt.value,
-  eml: sgnp_eml_inpt.value,
-  pwd: sgnp_psswd_inpt.value,
-  conf_pwd: sgnp_fmpsswd_inpt.value
-};
+              usrnm: sgnp_usrnm_inpt.value,
+              pnm: sgnp_phnm_inpt.value,
+              eml: sgnp_eml_inpt.value,
+              pwd: sgnp_psswd_inpt.value,
+              conf_pwd: sgnp_fmpsswd_inpt.value,
+            };
 
-
-
-
-           console.log(lgdata)
-
+            console.log(lgdata);
 
             fetch("/usr/sgnp", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              // 'Authorization': 'Bearer YOUR_TOKEN',
-            },
-            body: JSON.stringify(lgdata),
-          })
-                 .then((response) => response.json())
-            .then((data) => {
-              //erMgs.innerHTML = data;
-                //erMgs.style.display = "block";
-                console.log(data.erMgs);
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                // 'Authorization': 'Bearer YOUR_TOKEN',
+              },
+              body: JSON.stringify(lgdata),
             })
-            .catch((error) => console.log(error));
+              .then((response) => response.json())
+              .then((data) => {
+                //erMgs.innerHTML = data;
+                //erMgs.style.display = "block";
+                if (data) {
+                  console.log(data);
+                  setInterval(() => {
+                    window.location.reload();
+                  }, 2000);
+                } else if ((data, erMgs)) {
+                  console.log(data.erMgs);
+                }
+              })
+              .catch((error) => console.log(error));
           });
-
         }
       });
     });

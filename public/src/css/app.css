@@ -14,9 +14,6 @@
   src: url(/assets/fonts/reddit/RedditSansChocolate-Light-BF651644f140815.ttf);
 }
 
-
-
-
 body {
   background-color: #0a0c0d;
   color: #ffffff;
@@ -46,7 +43,6 @@ body {
 .welcomeSubConts {
   display: flex;
   align-items: center;
-  
 }
 
 .wraperContainer {
@@ -73,19 +69,15 @@ body {
   display: flex;
   gap: 10px;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
-
-
-.linkBtn{
+.linkBtn {
   display: flex;
-    gap: 7px;
-align-items: center;
+  gap: 7px;
+  align-items: center;
   padding: 3px;
-
 }
-
 
 .toggleMenu {
   width: fit-content;
@@ -108,29 +100,27 @@ align-items: center;
   0% {
     transform: translateY(0) rotate(0);
   }
-  
+
   20% {
     transform: translateY(-10px) rotate(5deg);
   }
-  
+
   40% {
     transform: translateY(5px) rotate(-5deg);
   }
-  
+
   60% {
     transform: translateY(-10px) rotate(5deg);
   }
-  
+
   80% {
     transform: translateY(5px) rotate(-5deg);
   }
-  
+
   100% {
     transform: translateY(0) rotate(0);
   }
 }
-
-
 
 .leftsider {
   display: flex;
@@ -165,32 +155,26 @@ align-items: center;
   padding: 30px 0px;
 }
 
-
-
-/*LOGIN PAGE*//
-.loginConts{
+/*LOGIN PAGE*/
+.loginConts {
   color: white;
 }
 
 .signupBtn {
-   color: #ffffff;
-   background-color: #e93d00;
-   border-radius: 40px;
-   outline: none;
-   border: none;
-   padding: 6px 30px;
-   font-family: reddir-regular;
-  150 }
-::placeholder{
+  color: #ffffff;
+  background-color: #e93d00;
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  padding: 6px 30px;
+  font-family: reddir-regular;
+}
+::placeholder {
   color: grey;
 }
-input{
+input {
   color: white;
 }
-
-
-
-
 
 /*floating Message cloud1 AI model*/
 .floatingMgs {
@@ -207,10 +191,8 @@ input{
   background-color: transparent;
   border: 1px solid #e93d00;
   border-radius: 50%;
-  background-color:#272626 ;
+  background-color: #272626;
 }
-
-
 
 /*footer section*/
 .footer {
@@ -238,20 +220,20 @@ input{
   padding: 5px 0px;
 }
 
-#profilePrev{
+#profilePrev {
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: start;
   margin: 3px;
-  background-color:#272626 ;
+  background-color: #272626;
   padding: 3px 12px;
   border-radius: 5px;
 }
-.usrPrlEmail{
+.usrPrlEmail {
   font-size: 9px;
   color: grey;
 }
-.usrPrlusername{
-  margin-bottom:-7px;
+.usrPrlusername {
+  margin-bottom: -7px;
 }
