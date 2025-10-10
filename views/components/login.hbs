@@ -1,26 +1,45 @@
 <div class="loginPage">
-<div class="loginConts">
-  <p>Login Page</p>
-  <div class="lgn_emal">
-     <label>Email<label>
-     <input name="lgn_eml"  class="lgn_eml_inpt" placeholder="cloud!@gmail.com">
-  </div>
+  <div class="loginConts">
+    <p>Login Page</p>
+    <div class="lgn_emal">
+      <label>Email</label>
+      <input
+        name="lgn_eml"
+        class="lgn_eml_inpt"
+        placeholder="cloud!@gmail.com"
+      />
+    </div>
 
-  <div class="lgn_pwd">
-   <label>Password<label>
-     <input name="lgn_psswd" class="lgn_psswd_inpt" type="password" placeholder="**********">
-  </div>
+    <div class="lgn_pwd">
+      <label>Password</label>
+      <input
+        name="lgn_psswd"
+        class="lgn_psswd_inpt"
+        type="password"
+        placeholder="**********"
+      />
+    </div>
 
-  <div class="lgn_cfpswd_pwd">
-   <label>Confirm Password<label>
-     <input name="lgn_cfpsswd" class="lgn_cfmpsswd_inpt" type="password" placeholder="***********">
-  </div>
-  <p>Dont have an account? <span class="sgnpLink">Signup</span></p>
-  <div id="lgn_erMgs_pnl">
+    {{!     <div class="lgn_cfpswd_pwd">
+      <label>Confirm Password</label>
+      <input
+        name="lgn_cfpsswd"
+        class="lgn_cfmpsswd_inpt"
+        type="password"
+        placeholder="***********"
+      />
+    </div> }}
+    <p>Dont have an account? <span class="sgnpLink">Signup</span></p>
+    <div id="lgn_erMgs_pnl">
       <p id="lgn_ermgs" style="display: none;"></p>
+    </div>
+
+    <div class="frgt_Pl">
+      <p><span class="frgtLinkBtn">Forgot Password?</span></p>
+    </div>
+
+    <div class="login_Btn">
+      <button class="lgn_Btn">Submit</button>
+    </div>
   </div>
-  <div class="login_Btn">
-    <button  class="lgn_Btn">Submit</button>
-  </div>
-</div>
 </div>

@@ -1,5 +1,6 @@
 const Home = document.querySelector(".contentsSec");
 const loginBtn = document.querySelector(".loginBtn");
+const contentsSec = document.querySelector(".contentsSec");
 
 (lgpg = () => {
   const lgpgobsrvr = new MutationObserver((mutations) => {
@@ -12,9 +13,8 @@ const loginBtn = document.querySelector(".loginBtn");
         if (nodelgn_Btn) {
           const eml_inpt = document.querySelector(".lgn_eml_inpt");
           const psswd_inpt = document.querySelector(".lgn_psswd_inpt");
-          const cfmpsswd_inpt = document.querySelector(".lgn_cfmpsswd_inpt");
           const sgnpLink = document.querySelector(".sgnpLink");
-
+          const frgtLinkBtn = document.querySelector(".frgtLinkBtn");
           //Link signup
           sgnpLink.addEventListener("click", () => {
             fetch("/app/sgnpg", {
@@ -26,7 +26,7 @@ const loginBtn = document.querySelector(".loginBtn");
             })
               .then((response) => response.text())
               .then((data) => {
-                Home.innerHTML = data;
+                contentsSec.innerHTML = data;
               })
               .catch((error) => console.error("Error:", error));
           });
@@ -34,11 +34,10 @@ const loginBtn = document.querySelector(".loginBtn");
           //Login form
           nodelgn_Btn.addEventListener("click", () => {
             console.log("submit form:");
-            console.log(eml_inpt.value, psswd_inpt.value, cfmpsswd_inpt.value);
+            console.log(eml_inpt.value, psswd_inpt.value);
             const lgdata = {
               eml: eml_inpt.value,
               pwd: psswd_inpt.value,
-              conf_pwd: cfmpsswd_inpt.value,
             };
 
             console.log(lgdata);
@@ -78,6 +77,22 @@ const loginBtn = document.querySelector(".loginBtn");
             if (sgnpLink) {
               console.log("here");
             }
+          });
+
+          //Forgot password URL
+          frgtLinkBtn.addEventListener("click", () => {
+            fetch("/app/frgtpss", {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                // 'Authorization': 'Bearer YOUR_TOKEN',
+              },
+            })
+              .then((response) => response.text())
+              .then((data) => {
+                contentsSec.innerHTML = data;
+              })
+              .catch((error) => console.error("Error:", error));
           });
         }
       });

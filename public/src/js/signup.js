@@ -13,14 +13,15 @@ if (sgnp_Home) {
           : node.querySelector?.(".sgnp_Btn");
 
         if (nodesignup_Btn) {
-          console.log("Sigubtn present");
           const sgnp_usrnm_inpt = document.querySelector(".sgnp_usrnm_inpt");
           const sgnp_phnm_inpt = document.querySelector(".sgnp_phnm_inpt");
           const sgnp_eml_inpt = document.querySelector(".sgnp_eml_inpt");
           const sgnp_psswd_inpt = document.querySelector(".sgnp_psswd_inpt");
           const sgnp_fmpsswd_inpt =
             document.querySelector(".sgnp_fmpsswd_inpt");
-
+          const sgnp_ermgs = document.querySelector("#sgnp_ermgs");
+          const lgnLinkBtn = document.querySelector(".lgnLinkBtn");
+          //Signup url Form
           nodesignup_Btn.addEventListener("click", () => {
             console.log("submit form:");
             console.log(
@@ -53,16 +54,37 @@ if (sgnp_Home) {
               .then((data) => {
                 //erMgs.innerHTML = data;
                 //erMgs.style.display = "block";
-                if (data) {
+                if (data.erMgs) {
+                  console.log(data.erMgs);
+                  sgnp_ermgs.style.display = "block";
+                  sgnp_ermgs.innerHTML = data.erMgs;
+                  setTimeout(() => {
+                    sgnp_ermgs.style.display = "none";
+                  }, 3000);
+                } else if (data.redir) {
                   console.log(data);
                   setInterval(() => {
                     window.location.reload();
                   }, 2000);
-                } else if ((data, erMgs)) {
-                  console.log(data.erMgs);
                 }
               })
               .catch((error) => console.log(error));
+          });
+
+          //Switch from Signup to Login page
+          lgnLinkBtn.addEventListener("click", () => {
+            fetch("/app/login", {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                // 'Authorization': 'Bearer YOUR_TOKEN',
+              },
+            })
+              .then((response) => response.text())
+              .then((data) => {
+                sgnp_Home.innerHTML = data;
+              })
+              .catch((error) => console.error("Error:", error));
           });
         }
       });
