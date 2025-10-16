@@ -61,11 +61,16 @@ if (sgnp_Home) {
                   setTimeout(() => {
                     sgnp_ermgs.style.display = "none";
                   }, 3000);
-                } else if (data.redir) {
+                } else if (data.jwtToken && data.redir) {
                   console.log(data);
-                  setInterval(() => {
+                  const expires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 days
+                  document.cookie =
+                    `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
+                    `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`;
+
+                  /* setInterval(() => {
                     window.location.reload();
-                  }, 2000);
+                  }, 2000); */
                 }
               })
               .catch((error) => console.log(error));

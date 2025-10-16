@@ -1,8 +1,10 @@
 import express from "express";
 import userModel from "../models/user.model.js";
 import dotenv from "dotenv";
-dotenv.config();
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+
+dotenv.config();
 
 export const allUsers = async (req, res) => {
   res.render("components/login");
@@ -44,17 +46,30 @@ export const signupUrl = async (req, res) => {
               });
             } else {
               //Data Encyption before storing in db (very important encypt then store)
-
+              const salt = bcrypt.genSaltSync(10);
+              const hashedpassword = bcrypt.hashSync(pwd, salt);
               //Create user if user doesnt exist
               const newUser = await userModel.create({
                 username: usrnm,
                 phone: pnm,
                 email: eml,
-                password: pwd,
+                password: hashedpassword,
               });
 
               if (newUser) {
-                res.json({ redir: true });
+                const data = {
+                  usrnm: newUser.username,
+                  phm: newUser.phone,
+                  eml: newUser.email,
+                };
+                console.log(data);
+                const JWT = jwt.sign(data, process.env.SECRET_KEY, {
+                  expiresIn: "24h",
+                });
+                res.json({
+                  redir: true,
+                  jwtToken: JWT,
+                });
               }
             }
           } else {
@@ -70,11 +85,26 @@ export const signupUrl = async (req, res) => {
       }
     } else {
       res.json({
-        erMgs: "fill in all fileds!",
+        erMgs: "Fill in all fileds!",
       });
     }
   } catch (error) {
     console.log(error);
+    //chceking wrong phone number format
+    if (
+      error.name === "SequelizeValidationError" &&
+      error.errors &&
+      error.errors.some(
+        (err) =>
+          err.message === "Validation is on phone failed" &&
+          err.type === "Validation error" &&
+          err.path === "phone"
+      )
+    ) {
+      res.json({
+        erMgs: "Invalid phone number format!",
+      });
+    }
   }
 };
 
@@ -109,7 +139,8 @@ export const loginUrl = async (req, res) => {
             });
             //Password chceking of existing usr email
             if (ifexists) {
-              if (pwd === ifexists.password) {
+              const isValid = bcrypt.compareSync(pwd, ifexists.password);
+              if (isValid) {
                 const usrData = {
                   usrnm: ifexists.username,
                   phm: ifexists.phone,
@@ -146,7 +177,7 @@ export const loginUrl = async (req, res) => {
       }
     } else {
       res.json({
-        erMgs: "fill in all fileds!",
+        erMgs: "Fill in all fileds!",
       });
     }
   } catch (error) {
@@ -158,9 +189,14 @@ export const loginUrl = async (req, res) => {
 export const prflrUrl = async (req, res) => {
   const { prflr_tkn } = req.body;
   try {
-    res.json({
-      name: "cloud1_name",
-    });
+    if (prflr_tkn) {
+      const opnTkn = jwt.verify(prflr_tkn, process.env.SECRET_KEY);
+      res.json({
+        usrnm: opnTkn.usrnm,
+        phm: opnTkn.phm,
+        eml: opnTkn.eml,
+      });
+    }
   } catch (err) {
     console.log(err);
   }

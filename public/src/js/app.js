@@ -4,7 +4,6 @@ const toggleMenu = document.querySelector(".toggleMenu");
 const loginBtn = document.querySelector(".loginBtn");
 const contentsSec = document.querySelector(".contentsSec");
 const notifications = document.querySelector(".notifications");
-const profileMenu = document.querySelector(".profileMenu");
 const floatingMgs = document.querySelector(".floatingMgs");
 const librarySec = document.querySelector(".librarySec");
 const homeSec = document.querySelector(".homeSec");
@@ -51,20 +50,7 @@ notifications.addEventListener("click", () => {
 });
 
 //profileMenu section
-profileMenu.addEventListener("click", () => {
-  fetch("/app/login", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      // 'Authorization': 'Bearer YOUR_TOKEN',
-    },
-  })
-    .then((response) => response.text())
-    .then((data) => {
-      contentsSec.innerHTML = data;
-    })
-    .catch((error) => console.error("Error:", error));
-});
+//This section is in profile.js
 
 //cloud1AImodel section
 floatingMgs.addEventListener("click", () => {
@@ -118,7 +104,7 @@ homeSec.addEventListener("click", () => {
 });
 
 //Auto Home render
-function homeFuc() {
+/* function homeFuc() {
   fetch("/app/home", {
     method: "GET",
     headers: {
@@ -133,6 +119,21 @@ function homeFuc() {
     .catch((error) => console.error("Error:", error));
 }
 homeFuc();
+ */
+(async = () => {
+  fetch("/app/home", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error("Error:", error));
+})();
 
 //search section
 searchSec.addEventListener("click", () => {
@@ -157,7 +158,7 @@ cloud1L.addEventListener("click", () => {
 });
 
 //signup section
-function signupFuc() {
+signupFuc = () => {
   signupPage.style.display = "block";
   loginPage.style.display = "none";
-}
+};

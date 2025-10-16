@@ -1,2 +1,2 @@
-var n=document.querySelector(".burgerBtn"),e=document.querySelector(".toggleMenu"),o=document.querySelectorAll(".linkBtn");n.addEventListener("click",()=>{console.log("click"),e.style.display="block"});o.forEach((l,t)=>{l.addEventListener("click",()=>{e.style.display==="block"&&(console.log("block"),e.style.display="none")})});
+var n=document.querySelector(".burgerBtn"),o=document.querySelectorAll(".linkBtn");n.addEventListener("click",()=>{console.log("click");let e=document.querySelector(".toggleMenu");e.style.display="block"});o.forEach((e,t)=>{e.addEventListener("click",()=>{let l=document.querySelector(".toggleMenu");l.style.display==="block"&&(console.log("block"),l.style.display="none")})});
 //# sourceMappingURL=navibar.js.map

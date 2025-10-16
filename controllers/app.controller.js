@@ -29,3 +29,18 @@ export const sgnpgUrl = async (req, res) => {
 export const frgtpssUrl = async (req, res) => {
   res.render("components/forgot_password");
 };
+export const profileUrl = async (req, res) => {
+  const { prflr_tkn } = req.body;
+  try {
+    if (prflr_tkn === "") {
+      res.json({
+        lognd: false,
+      });
+      console.log(prflr_tkn);
+    } else if (prflr_tkn) {
+      res.render("components/profile");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

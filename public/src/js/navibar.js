@@ -1,15 +1,17 @@
 const burgerBtn = document.querySelector(".burgerBtn");
-const toggleMenu = document.querySelector(".toggleMenu");
+/* const toggleMenu = document.querySelector(".toggleMenu"); */
 const linkBtn = document.querySelectorAll(".linkBtn");
 
 burgerBtn.addEventListener("click", () => {
   console.log("click");
+  const toggleMenu = document.querySelector(".toggleMenu");
   toggleMenu.style.display = "block";
 });
 
 //clicks on individual links
 linkBtn.forEach((btn, index) => {
   btn.addEventListener("click", () => {
+    const toggleMenu = document.querySelector(".toggleMenu");
     if (toggleMenu.style.display === "block") {
       console.log("block");
       toggleMenu.style.display = "none";

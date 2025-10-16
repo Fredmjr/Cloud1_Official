@@ -8,6 +8,7 @@ import {
   searchUrl,
   sgnpgUrl,
   frgtpssUrl,
+  profileUrl,
 } from "../controllers/app.controller.js";
 
 const router = express.Router();
@@ -20,5 +21,6 @@ router.get("/cloud1AImodel", cloud1AImodelUrl);
 router.get("/search", searchUrl);
 router.get("/sgnpg", sgnpgUrl);
 router.get("/frgtpss", frgtpssUrl);
+router.post("/prfl", profileUrl);
 
 export default router;

@@ -1,8 +1,8 @@
 const Home = document.querySelector(".contentsSec");
-const loginBtn = document.querySelector(".loginBtn");
-const contentsSec = document.querySelector(".contentsSec");
+/* const loginBtn = document.querySelector(".loginBtn"); */
+/* const contentsSec = document.querySelector(".contentsSec"); */
 
-(lgpg = () => {
+(() => {
   const lgpgobsrvr = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
@@ -15,6 +15,7 @@ const contentsSec = document.querySelector(".contentsSec");
           const psswd_inpt = document.querySelector(".lgn_psswd_inpt");
           const sgnpLink = document.querySelector(".sgnpLink");
           const frgtLinkBtn = document.querySelector(".frgtLinkBtn");
+          const lgn_erMgs_pnl = document.querySelector("#lgn_erMgs_pnl");
           //Link signup
           sgnpLink.addEventListener("click", () => {
             fetch("/app/sgnpg", {
@@ -26,6 +27,7 @@ const contentsSec = document.querySelector(".contentsSec");
             })
               .then((response) => response.text())
               .then((data) => {
+                const contentsSec = document.querySelector(".contentsSec");
                 contentsSec.innerHTML = data;
               })
               .catch((error) => console.error("Error:", error));
@@ -56,12 +58,15 @@ const contentsSec = document.querySelector(".contentsSec");
                 //erMgs.style.display = "block";
                 if (data.erMgs) {
                   console.log(data.erMgs);
+                  lgn_erMgs_pnl.innerHTML = data.erMgs;
+                  lgn_erMgs_pnl.style.display = "block";
+                  setTimeout(() => {
+                    lgn_erMgs_pnl.style.display = "none";
+                  }, 3000);
                 } else if (data.jwtToken) {
                   console.log(data.jwtToken);
                   //Setup Token
-                  const expires = new Date(
-                    Date.now() + 7 * 24 * 60 * 60 * 1000
-                  ); // 7 days
+                  const expires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 7 days
                   document.cookie =
                     `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
                     `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`; //
@@ -90,6 +95,7 @@ const contentsSec = document.querySelector(".contentsSec");
             })
               .then((response) => response.text())
               .then((data) => {
+                const contentsSec = document.querySelector(".contentsSec");
                 contentsSec.innerHTML = data;
               })
               .catch((error) => console.error("Error:", error));
