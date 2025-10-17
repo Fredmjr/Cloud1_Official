@@ -9,6 +9,7 @@ import {
   sgnpgUrl,
   frgtpssUrl,
   profileUrl,
+  prflpgUl,
 } from "../controllers/app.controller.js";
 
 const router = express.Router();
@@ -22,5 +23,6 @@ router.get("/search", searchUrl);
 router.get("/sgnpg", sgnpgUrl);
 router.get("/frgtpss", frgtpssUrl);
 router.post("/prfl", profileUrl);
+router.get("/prflpg", prflpgUl);
 
 export default router;

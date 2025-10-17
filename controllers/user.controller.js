@@ -62,7 +62,7 @@ export const signupUrl = async (req, res) => {
                   phm: newUser.phone,
                   eml: newUser.email,
                 };
-                console.log(data);
+
                 const JWT = jwt.sign(data, process.env.SECRET_KEY, {
                   expiresIn: "24h",
                 });
@@ -195,6 +195,24 @@ export const prflrUrl = async (req, res) => {
         usrnm: opnTkn.usrnm,
         phm: opnTkn.phm,
         eml: opnTkn.eml,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//
+export const authprflUrl = async (req, res) => {
+  const { tkndata } = req.body;
+  try {
+    if (tkndata && tkndata !== "") {
+      res.json({
+        prflpg: "prflpg",
+      });
+    } else {
+      res.json({
+        erMgs: "lgpg",
       });
     }
   } catch (err) {

@@ -1,9 +1,5 @@
 const sgnp_Home = document.querySelector(".contentsSec");
 
-if (sgnp_Home) {
-  console.log("present");
-}
-
 (SgnpFuc = () => {
   const sgnpobsrvr = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -23,14 +19,8 @@ if (sgnp_Home) {
           const lgnLinkBtn = document.querySelector(".lgnLinkBtn");
           //Signup url Form
           nodesignup_Btn.addEventListener("click", () => {
-            console.log("submit form:");
-            console.log(
-              sgnp_usrnm_inpt.value,
-              sgnp_phnm_inpt.value,
-              sgnp_eml_inpt.value,
-              sgnp_psswd_inpt.value,
-              sgnp_fmpsswd_inpt.value
-            );
+            //console.log("");
+            //console.log(""); //issue here app breakable issue!!!!
 
             const lgdata = {
               usrnm: sgnp_usrnm_inpt.value,
@@ -40,7 +30,7 @@ if (sgnp_Home) {
               conf_pwd: sgnp_fmpsswd_inpt.value,
             };
 
-            console.log(lgdata);
+            //console.log("");
 
             fetch("/usr/sgnp", {
               method: "POST",
@@ -62,15 +52,14 @@ if (sgnp_Home) {
                     sgnp_ermgs.style.display = "none";
                   }, 3000);
                 } else if (data.jwtToken && data.redir) {
-                  console.log(data);
                   const expires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 days
                   document.cookie =
                     `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
                     `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`;
 
-                  /* setInterval(() => {
+                  setInterval(() => {
                     window.location.reload();
-                  }, 2000); */
+                  }, 2000);
                 }
               })
               .catch((error) => console.log(error));

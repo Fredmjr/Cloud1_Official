@@ -44,3 +44,6 @@ export const profileUrl = async (req, res) => {
     console.log(error);
   }
 };
+export const prflpgUl = async (req, res) => {
+  res.render("components/profile");
+};
