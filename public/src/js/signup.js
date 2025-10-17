@@ -76,6 +76,7 @@ const sgnp_Home = document.querySelector(".contentsSec");
             })
               .then((response) => response.text())
               .then((data) => {
+                const sgnp_Home = document.querySelector(".contentsSec");
                 sgnp_Home.innerHTML = data;
               })
               .catch((error) => console.error("Error:", error));

@@ -1,5 +1,5 @@
 const burgerBtn = document.querySelector(".burgerBtn");
-/* const toggleMenu = document.querySelector(".toggleMenu"); */
+const toggleMenu = document.querySelector("#profilePrev");
 const linkBtn = document.querySelectorAll(".linkBtn");
 
 burgerBtn.addEventListener("click", () => {
@@ -36,3 +36,20 @@ linkBtn.forEach((btn, index) => {
   }
 });
  */
+
+//prpfile page when proile btn clicked
+profilePrev.addEventListener("click", () => {
+  fetch("/app/prflpg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});

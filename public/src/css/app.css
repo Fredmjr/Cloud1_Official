@@ -90,6 +90,70 @@ body {
   background-color: #15191b;
   border-bottom: 2px solid #e93d00;
 }
+.prlusrIcon {
+  padding: 3px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #15191b;
+  border: 2px solid #e93d00;
+  overflow: hidden;
+}
+.prlusriconFilr {
+  padding: 5px;
+  background-color: #15191b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dropwon icons */
+.drpprflIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.dropsLinks {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.drpdwnldIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.drphpspIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.drpdaymdIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.drpmchtsIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.drpntfnlIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.drpstgsIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
+
+.drplgtIcon {
+  width: 15;
+  filter: brightness(0) invert(1);
+}
 
 /*.........Anamtion for cloud1 bot ......*/
 #logoId {

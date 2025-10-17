@@ -11,6 +11,14 @@ const searchSec = document.querySelector(".searchSec");
 const cloud1L = document.querySelector(".cloud1L");
 const loginPage = document.querySelector(".loginPage");
 const signupPage = document.querySelector(".signupPage");
+const drppflBtn = document.querySelector("#drppflBtn");
+const drpmychtsBtn = document.querySelector("#drpmychtsBtn");
+const drpexprBtn = document.querySelector("#drpexprBtn");
+const drpdaymdBtn = document.querySelector("#drpdaymdBtn");
+const drpstngsBtn = document.querySelector("#drpstngsBtn");
+const drpdwnldBtn = document.querySelector("#drpdwnldBtn");
+const drphpspBtn = document.querySelector("#drphpspBtn");
+const drplgoutBtn = document.querySelector("#drplgoutBtn");
 
 //welcome page with logo
 setTimeout(function () {
@@ -162,3 +170,125 @@ signupFuc = () => {
   signupPage.style.display = "block";
   loginPage.style.display = "none";
 };
+
+drppflBtn.addEventListener("click", () => {
+  fetch("/app/prflpg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});
+
+drpmychtsBtn.addEventListener("click", () => {
+  fetch("/app/chtspg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});
+
+//Explore page
+drpexprBtn.addEventListener("click", () => {
+  fetch("/app/exppg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});
+//Daylight mode page
+drpdaymdBtn.addEventListener("click", () => {
+  fetch("/app/dymdpg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});
+//Settings page
+drpstngsBtn.addEventListener("click", () => {
+  fetch("/app/stngspg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});
+//downloads page
+drpdwnldBtn.addEventListener("click", () => {
+  fetch("/app/dwnldpg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});
+//Help and support page
+drphpspBtn.addEventListener("click", () => {
+  fetch("/app/hpsppg", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Authorization': 'Bearer YOUR_TOKEN',
+    },
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const contentsSec = document.querySelector(".contentsSec");
+      contentsSec.innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+});
+
+//Logout function
+drplgoutBtn.addEventListener("click", () => {
+  console.log("loging out");
+  document.cookie = `lgrTkn=; Secure; SameSite=Strict; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+  setTimeout(() => {
+    window.location.reload();
+  }, 500);
+});

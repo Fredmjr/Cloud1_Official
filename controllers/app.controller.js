@@ -47,3 +47,21 @@ export const profileUrl = async (req, res) => {
 export const prflpgUl = async (req, res) => {
   res.render("components/profile");
 };
+export const chtspgUrl = async (req, res) => {
+  res.render("components/chats");
+};
+export const exppgUrl = async (req, res) => {
+  res.render("components/explore");
+};
+export const dymdppUrl = async (req, res) => {
+  res.render("components/daylight");
+};
+export const stngspgUrl = async (req, res) => {
+  res.render("components/settings");
+};
+export const dwnldpgUrl = async (req, res) => {
+  res.render("components/downloads");
+};
+export const hpsppgUrl = async (req, res) => {
+  res.render("components/help_support");
+};

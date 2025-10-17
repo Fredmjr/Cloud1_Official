@@ -10,6 +10,12 @@ import {
   frgtpssUrl,
   profileUrl,
   prflpgUl,
+  chtspgUrl,
+  exppgUrl,
+  dymdppUrl,
+  stngspgUrl,
+  dwnldpgUrl,
+  hpsppgUrl,
 } from "../controllers/app.controller.js";
 
 const router = express.Router();
@@ -24,5 +30,11 @@ router.get("/sgnpg", sgnpgUrl);
 router.get("/frgtpss", frgtpssUrl);
 router.post("/prfl", profileUrl);
 router.get("/prflpg", prflpgUl);
+router.get("/chtspg", chtspgUrl);
+router.get("/exppg", exppgUrl);
+router.get("/dymdpg", dymdppUrl);
+router.get("/stngspg", stngspgUrl);
+router.get("/dwnldpg", dwnldpgUrl);
+router.get("/hpsppg", hpsppgUrl);
 
 export default router;
