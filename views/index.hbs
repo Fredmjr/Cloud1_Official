@@ -1,130 +1,236 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="src/css/app.css" rel="stylesheet">
-  <title>cloud1</title>
-</head>
-<body>
-  <div class="wraperContainer">
-      {{!-- welcome page--}}
-    <div class="welcomePage">
-      <div class="welcomePageConts">
-        <div class="welcomeSubConts">
-          <div class="loadingScreen">
-            <img id="cloud1LId" class="cloud1LClass" src="/assets/logos/cloud1-rebrand/cloud1-logo-rebrand-mix-orange.png" width="50">
-          </div>
-          <div style="display:none;">
-             <img src="/assets/icons/loading.gif" width="100" style="filter: brightness(0) invert(1);">
-              <div >
-              <p>Welcome to Cloud1</p>
-      <p>A community based on different culture all across the global</p>
-          </div>
-          </div>
-        </div>
-        
-      </div>
-      </div>
-    <div class="naviBar">
-      <span class="leftsider">
-        <span class="menuBtn">
-          <img src="/assets/icons/menu.png" width="20" style="filter: brightness(0) invert(1);">
-        </span>
-        
-        {{!--Hidden menu--}}
-        <div class="toggleMenu" style="display: none;">
-          <div class="toggleMenuConts">
-            <div id="profilePrev" class="linkBtn">
-              <img src="/assets/icons/notification.png" width=15" style="filter: brightness(0) invert(1);">
-              <span>
-                <p class="usrPrlusername">Username</p>
-                <p class="usrPrlEmail">username@gmail.com</p>
-              </span>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="src/css/app.css" rel="stylesheet" />
+    <link href="src/css/login.css" rel="stylesheet" />
+    <link href="src/css/signup.css" rel="stylesheet" />
+    <title>cloud1</title>
+  </head>
+  <body>
+    <div class="wraperContainer">
+      <!-- welcome page -->
+      <div class="welcomePage">
+        <div class="welcomePageConts">
+          <div class="welcomeSubConts">
+            <div class="loadingScreen">
+              <img
+                id="cloud1LId"
+                class="cloud1LClass"
+                src="/assets/logos/cloud1-rebrand/cloud1-logo-rebrand-mix-orange.png"
+                width="50"
+              />
             </div>
-            
-            <p class="linkBtn">My Profile</p>
-            <p class="linkBtn">My Chats</p>
-            <p class="linkBtn">Night Mode</p>
-            <p class="linkBtn">Settings</p>
-            <p class="linkBtn">Help & Support</p>
-            <p class="linkBtn">Download App</p>
-            <p class="linkBtn">
-           <span class="dropsLinks"> <img src="/assets/icons/notification.png" width=15" style="filter: brightness(0) invert(1);"></spa>
-            Help & Support
-          </span>
-          </p>
-          <p class="linkBtn">Logout</p>
-            </br>
-            </br>
-            </br>
-          <p class="linkBtn" id="dropsFooterCl">Cloud1 2025</p>
-          <p class="linkBtn" id="dropsFootVers">Version 1.0.0 - All rights reserved.
-    </p>
+            <div style="display:none;">
+              <img
+                src="/assets/icons/loading.gif"
+                width="100"
+                style="filter: brightness(0) invert(1);"
+              />
+              <div>
+                <p>Welcome to Cloud1</p>
+                <p>A community based on different culture all across the global</p>
+              </div>
+            </div>
           </div>
+
         </div>
-        
-         <span class="cloud1L"> 
-          <img id="cloud1LId" class="cloud1LClass" src="/assets/logos/cloud1-rebrand/cloud1-logo-rebrand-mix-orange.png" width="30">
+      </div>
+      <div class="naviBar">
+        <span class="leftsider">
+          <span class="menuBtn">
+            <img
+              class="burgerBtn"
+              src="/assets/icons/menu.png"
+              width="20"
+              style="filter: brightness(0) invert(1);"
+            />
+          </span>
+
+          <!--Hidden menu -->
+          <div class="toggleMenu" style="display: none;">
+            <div class="toggleMenuConts">
+              <div id="profilePrev" class="linkBtn">
+                <div class="prlusrIcon">
+                  <span class="prlusriconFilr">
+                    <img
+                      src="/assets/icons/user (1).png"
+                      width="15"
+                      style="filter: brightness(0) invert(1);"
+                    />
+                  </span>
+
+                </div>
+
+                <span>
+                  <p class="usrPrlusername">Username</p>
+                  <p class="usrPrlEmail">username@gmail.com</p>
+                </span>
+              </div>
+
+              <p class="linkBtn" id="drppflBtn">
+                <span>
+                  <img
+                    class="drpprflIcon"
+                    src="/assets/icons/user (1).png"
+                  /></span>
+                My Profile</p>
+              <p class="linkBtn" id="drpmychtsBtn">
+                <span>
+                  <img
+                    class="drpmchtsIcon"
+                    src="/assets/icons/chat.png"
+                  /></span>
+                My Chats</p>
+              <p class="linkBtn" id="drpexprBtn">
+                <span>
+                  <img
+                    class="drphpspIcon"
+                    src="/assets/icons/compass.png"
+                  /></span>
+                Explore</p>
+              <p class="linkBtn" id="drpdaymdBtn">
+                <span>
+                  <img
+                    class="drpdaymdIcon"
+                    src="/assets/icons/brightness.png"
+                  /></span>
+                Daylight Mode</p>
+              <p class="linkBtn" id="drpstngsBtn">
+                <span>
+                  <img
+                    class="drpstgsIcon"
+                    src="/assets/icons/setting.png"
+                  /></span>
+                Settings</p>
+
+              <p class="linkBtn" id="drpdwnldBtn">
+                <span>
+                  <img
+                    class="drpdwnldIcon"
+                    src="/assets/icons/downloads.png"
+                  /></span>
+                Download App</p>
+              <p class="linkBtn" id="drphpspBtn">
+                <span class="dropsLinks">
+                  <img
+                    src="/assets/icons/speech-bubble.png"
+                    width="15"
+                  /></span>
+                Help & Support
+              </p>
+              <p class="linkBtn" id="drplgoutBtn">
+                <span>
+                  <img
+                    class="drplgtIcon"
+                    src="/assets/icons/logout.png"
+                  /></span>
+                Logout</p>
+              <br />
+              <br />
+              <br />
+              <p class="linkBtn" id="dropsFooterCl">Cloud1 2025</p>
+              <p class="linkBtn" id="dropsFootVers">Version 1.0.0 - All rights
+                reserved.
+              </p>
+            </div>
+          </div>
+
+          <span class="cloud1L">
+            <img
+              id="cloud1LId"
+              class="cloud1LClass"
+              src="/assets/logos/cloud1-rebrand/cloud1-logo-rebrand-mix-orange.png"
+              width="30"
+            />
+          </span>
+
         </span>
 
-      </span>
-
-      <span class="rightsider">
-      <span>
-        <button class="loginBtn">Log In</button>
-      </span>        
-        {{!--
+        <span class="rightsider">
+          <span>
+            <button class="loginBtn">Log In</button>
+          </span>
+          <!--
                 <span class="cloud1Logo">
           <img id="logoId" class="logoIdjs" src="/assets/logos/cloud1/CLOUD1-HEAD.png" width="60">
         </span>
-        --}}
-        <span class="notifications">
-          <img src="/assets/icons/notification.png" width="20" style="filter: brightness(0) invert(1);">
-        </span>
-        {{!-- 
+       -->
+          <span class="notifications">
+            <img
+              src="/assets/icons/notification.png"
+              width="20"
+              style="filter: brightness(0) invert(1);"
+            />
+          </span>
+          <!--
         <span class="aiModel">
           <img src="/assets/icons/live-chat (1).png" width="70" style="filter: brightness(0) invert(1);">
+        </span> -->
+
+          <span class="profileMenu">
+            <img
+              src="/assets/icons/user (1).png"
+              width="18"
+              style="filter: brightness(0) invert(1);"
+            />
+          </span>
         </span>
-        --}}
-        <span class="profileMenu">
-          <img src="/assets/icons/user (1).png" width="18" style="filter: brightness(0) invert(1);">
+      </div>
+      <div class="contents">
+        <div class="contentsSec">
+
+          <img
+            src="/assets/icons/loading.gif"
+            width="20"
+            style="filter: brightness(0) invert(1);"
+          />
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="floatingMgs">
+          <span class="cloud1Logo">
+            <img
+              id="logoId"
+              class="logoIdjs"
+              src="/assets/logos/cloud1/CLOUD1-HEAD.png"
+              width="30"
+            />
+          </span>
+        </div>
+        <span class="librarySec">
+          <div class="iconCss"><img
+              src="/assets/icons/book.png"
+              width="20"
+              style="filter: brightness(0) invert(1);"
+            /></div>
+          <span class="footerText">Library</span>
         </span>
-      </span>
-    </div>
-    <div class="contents">
-      <div class="contentsSec">
-          {{!-- <h3>cloud1</h3>--}}
-           <img src="/assets/icons/loading.gif" width="20" style="filter: brightness(0) invert(1);">
+        <span class="homeSec">
+          <div class="iconCss"><img
+              src="/assets/icons/home.png"
+              width="20"
+              style="filter: brightness(0) invert(1);"
+            /></div>
+          <span class="footerText">Home</span>
+        </span>
+        <span class="searchSec">
+          <div class="iconCss"><img
+              src="/assets/icons/search.png"
+              width="20"
+              style="filter: brightness(0) invert(1);"
+            /></div>
+          <span class="footerText">Search</span>
+        </span>
       </div>
     </div>
 
-    
-    
-    <div class="footer">
-      <div class="floatingMgs">
-                        <span class="cloud1Logo">
-          <img id="logoId" class="logoIdjs" src="/assets/logos/cloud1/CLOUD1-HEAD.png" width="30">
-        </span>
-      </div>
-      <span class="librarySec">
-        <div class="iconCss"><img src="/assets/icons/book.png" width="20" style="filter: brightness(0) invert(1);"></div>
-        <span class="footerText">Library</span>
-      </span>
-      <span class="homeSec">
-        <div class="iconCss"><img src="/assets/icons/home.png" width="20" style="filter: brightness(0) invert(1);"></div>
-        <span class="footerText">Home</span>
-      </span>
-      <span class="searchSec">
-        <div class="iconCss"><img src="/assets/icons/search.png" width="20" style="filter: brightness(0) invert(1);"></div>
-        <span class="footerText">Search</span>
-      </span>
-    </div>
-  </div>
-
-  <script src="dist/js/app.js"></script>
-  <script src="dist/js/login.js"></script>
-  <script src="dist/js/signup.js"></script>
-  <script src="dist/js/profile.js"></script>
-</body>
+    <script defer src="dist/js/app.js"></script>
+    <script defer src="dist/js/login.js"></script>
+    <script defer src="dist/js/signup.js"></script>
+    <script defer src="dist/js/profile.js"></script>
+    <script defer src="dist/js/navibar.js"></script>
+    <script defer src="dist/js/auto_filer.js"></script>
+  </body>
 </html>

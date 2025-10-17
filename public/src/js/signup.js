@@ -1,15 +1,6 @@
-const sgnp_Home = document.querySelector('.contentsSec')
+const sgnp_Home = document.querySelector(".contentsSec");
 
-
-
-
-
-if(sgnp_Home){
-  console.log('present')
-}
-
-
-(SgnpFuc= () => {
+(SgnpFuc = () => {
   const sgnpobsrvr = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
@@ -18,52 +9,78 @@ if(sgnp_Home){
           : node.querySelector?.(".sgnp_Btn");
 
         if (nodesignup_Btn) {
-          console.log("Sigubtn present")
-          const sgnp_usrnm_inpt = document.querySelector('.sgnp_usrnm_inpt')
-          const sgnp_phnm_inpt = document.querySelector('.sgnp_phnm_inpt')
-          const sgnp_eml_inpt = document.querySelector('.sgnp_eml_inpt')
-          const sgnp_psswd_inpt = document.querySelector('.sgnp_psswd_inpt')
-          const sgnp_fmpsswd_inpt = document.querySelector('.sgnp_fmpsswd_inpt')
-
-
-         nodesignup_Btn.addEventListener('click' , () => {
-
-           console.log("submit form:")
-           console.log(sgnp_usrnm_inpt.value, sgnp_phnm_inpt.value, sgnp_eml_inpt.value,
-                      sgnp_psswd_inpt.value, sgnp_fmpsswd_inpt.value)
-
+          const sgnp_usrnm_inpt = document.querySelector(".sgnp_usrnm_inpt");
+          const sgnp_phnm_inpt = document.querySelector(".sgnp_phnm_inpt");
+          const sgnp_eml_inpt = document.querySelector(".sgnp_eml_inpt");
+          const sgnp_psswd_inpt = document.querySelector(".sgnp_psswd_inpt");
+          const sgnp_fmpsswd_inpt =
+            document.querySelector(".sgnp_fmpsswd_inpt");
+          const sgnp_ermgs = document.querySelector("#sgnp_ermgs");
+          const lgnLinkBtn = document.querySelector(".lgnLinkBtn");
+          //Signup url Form
+          nodesignup_Btn.addEventListener("click", () => {
+            //console.log("");
+            //console.log(""); //issue here app breakable issue!!!!
 
             const lgdata = {
-  usrnm: sgnp_usrnm_inpt.value,
-  pnm: sgnp_phnm_inpt.value,
-  eml: sgnp_eml_inpt.value,
-  pwd: sgnp_psswd_inpt.value,
-  conf_pwd: sgnp_fmpsswd_inpt.value
-};
+              usrnm: sgnp_usrnm_inpt.value,
+              pnm: sgnp_phnm_inpt.value,
+              eml: sgnp_eml_inpt.value,
+              pwd: sgnp_psswd_inpt.value,
+              conf_pwd: sgnp_fmpsswd_inpt.value,
+            };
 
-
-
-
-           console.log(lgdata)
-
+            //console.log("");
 
             fetch("/usr/sgnp", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              // 'Authorization': 'Bearer YOUR_TOKEN',
-            },
-            body: JSON.stringify(lgdata),
-          })
-                 .then((response) => response.json())
-            .then((data) => {
-              //erMgs.innerHTML = data;
-                //erMgs.style.display = "block";
-                console.log(data.erMgs);
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                // 'Authorization': 'Bearer YOUR_TOKEN',
+              },
+              body: JSON.stringify(lgdata),
             })
-            .catch((error) => console.log(error));
+              .then((response) => response.json())
+              .then((data) => {
+                //erMgs.innerHTML = data;
+                //erMgs.style.display = "block";
+                if (data.erMgs) {
+                  console.log(data.erMgs);
+                  sgnp_ermgs.style.display = "block";
+                  sgnp_ermgs.innerHTML = data.erMgs;
+                  setTimeout(() => {
+                    sgnp_ermgs.style.display = "none";
+                  }, 3000);
+                } else if (data.jwtToken && data.redir) {
+                  const expires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 days
+                  document.cookie =
+                    `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
+                    `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`;
+
+                  setInterval(() => {
+                    window.location.reload();
+                  }, 2000);
+                }
+              })
+              .catch((error) => console.log(error));
           });
 
+          //Switch from Signup to Login page
+          lgnLinkBtn.addEventListener("click", () => {
+            fetch("/app/login", {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                // 'Authorization': 'Bearer YOUR_TOKEN',
+              },
+            })
+              .then((response) => response.text())
+              .then((data) => {
+                const sgnp_Home = document.querySelector(".contentsSec");
+                sgnp_Home.innerHTML = data;
+              })
+              .catch((error) => console.error("Error:", error));
+          });
         }
       });
     });

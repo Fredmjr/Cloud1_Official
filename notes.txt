@@ -7,6 +7,7 @@ layout
 
 
 text
+#f5deb3
 #808d94
 #00b01a
 #ffffff
