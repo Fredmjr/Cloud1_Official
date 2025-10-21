@@ -99,7 +99,7 @@ const drpml = document.querySelector(".usrPrlEmail");
       } else {
         //Redirect to login page if no login tkn found
         profileMenu.addEventListener("click", () => {
-          fetch("/app/login", {
+          fetch("/open/lgnpg", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

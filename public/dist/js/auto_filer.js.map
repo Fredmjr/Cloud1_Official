@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": [],
-  "sourcesContent": [],
-  "mappings": "",
-  "names": []
+  "sources": ["../../src/js/auto_filer.js"],
+  "sourcesContent": ["//This js will do automatic fill usr data throughtout application. (profile.js is reserved for profile config & page data)\r\n//Universal Bearer url token\r\n\r\n(async = () => {\r\n  let uni_autotkn = ((elem) => {\r\n    let ckies = document.cookie.split(\"; \");\r\n    for (let i = 0; i < ckies.length; i++) {\r\n      let cookie = ckies[i];\r\n      let [name, value] = cookie.split(\"=\");\r\n      if (name === elem) {\r\n        return decodeURIComponent(value);\r\n      }\r\n    }\r\n    return null;\r\n  })(\"lgrTkn\");\r\n  console.log(uni_autotkn);\r\n\r\n  //The res of logic here\r\n})();\r\n"],
+  "mappings": "gFAGC,MAAQA,EAAA,IAAM,CACb,IAAIC,GAAgBC,GAAS,CAC3B,IAAIC,EAAQ,SAAS,OAAO,MAAM,IAAI,EACtC,QAASC,EAAI,EAAGA,EAAID,EAAM,OAAQC,IAAK,CACrC,IAAIC,EAASF,EAAMC,CAAC,EAChB,CAACE,EAAMC,CAAK,EAAIF,EAAO,MAAM,GAAG,EACpC,GAAIC,IAASJ,EACX,OAAO,mBAAmBK,CAAK,CAEnC,CACA,OAAO,IACT,GAAG,QAAQ,EACX,QAAQ,IAAIN,CAAW,CAGzB,EAfS,UAeN",
+  "names": ["__name", "uni_autotkn", "elem", "ckies", "i", "cookie", "name", "value"]
 }

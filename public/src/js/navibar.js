@@ -2,6 +2,20 @@ const burgerBtn = document.querySelector(".burgerBtn");
 const toggleMenu = document.querySelector("#profilePrev");
 const linkBtn = document.querySelectorAll(".linkBtn");
 
+//Universal Bearer url token
+let uni_nvbrtkn = ((elem) => {
+  let ckies = document.cookie.split("; ");
+  for (let i = 0; i < ckies.length; i++) {
+    let cookie = ckies[i];
+    let [name, value] = cookie.split("=");
+    if (name === elem) {
+      return decodeURIComponent(value);
+    }
+  }
+  return null;
+})("lgrTkn");
+console.log(uni_nvbrtkn);
+
 burgerBtn.addEventListener("click", () => {
   console.log("click");
   const toggleMenu = document.querySelector(".toggleMenu");

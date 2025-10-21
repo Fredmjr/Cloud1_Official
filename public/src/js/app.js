@@ -20,6 +20,20 @@ const drpdwnldBtn = document.querySelector("#drpdwnldBtn");
 const drphpspBtn = document.querySelector("#drphpspBtn");
 const drplgoutBtn = document.querySelector("#drplgoutBtn");
 
+//Universal Bearer url token
+let uni_apptkn = ((elem) => {
+  let ckies = document.cookie.split("; ");
+  for (let i = 0; i < ckies.length; i++) {
+    let cookie = ckies[i];
+    let [name, value] = cookie.split("=");
+    if (name === elem) {
+      return decodeURIComponent(value);
+    }
+  }
+  return null;
+})("lgrTkn");
+console.log(uni_apptkn);
+
 //welcome page with logo
 setTimeout(function () {
   welcomePage.style.display = "none";
@@ -27,7 +41,7 @@ setTimeout(function () {
 
 //Login section
 loginBtn.addEventListener("click", () => {
-  fetch("/app/login", {
+  fetch("/open/lgnpg", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

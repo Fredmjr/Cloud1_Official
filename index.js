@@ -3,6 +3,7 @@ import sequelize from "./config/db.js";
 import userRouter from "./routes/user.routes.js";
 import appRouter from "./routes/app.routes.js";
 import assetRouter from "./routes/asset.routes.js";
+import openRouter from "./routes/open.routes.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
@@ -25,6 +26,7 @@ app.use(express.static("public"));
 app.use("/app", appRouter);
 app.use("/usr", userRouter);
 app.use("/asset", assetRouter);
+app.use("/open", openRouter);
 app.get("/", (req, res) => {
   res.render("index");
 });

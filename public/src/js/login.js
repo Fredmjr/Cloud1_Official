@@ -3,6 +3,20 @@ const Home = document.querySelector(".contentsSec");
 /* const contentsSec = document.querySelector(".contentsSec"); */
 
 (() => {
+  //Universal Bearer url token
+  let uni_logintkn = ((elem) => {
+    let ckies = document.cookie.split("; ");
+    for (let i = 0; i < ckies.length; i++) {
+      let cookie = ckies[i];
+      let [name, value] = cookie.split("=");
+      if (name === elem) {
+        return decodeURIComponent(value);
+      }
+    }
+    return null;
+  })("lgrTkn");
+  console.log(uni_logintkn);
+
   const lgpgobsrvr = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
@@ -18,7 +32,7 @@ const Home = document.querySelector(".contentsSec");
           const lgn_erMgs_pnl = document.querySelector("#lgn_erMgs_pnl");
           //Link signup
           sgnpLink.addEventListener("click", () => {
-            fetch("/app/sgnpg", {
+            fetch("/open/sgnpg", {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",

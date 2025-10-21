@@ -1,5 +1,19 @@
 const sgnp_Home = document.querySelector(".contentsSec");
 
+//Universal Bearer url token
+let uni_sgntkn = ((elem) => {
+  let ckies = document.cookie.split("; ");
+  for (let i = 0; i < ckies.length; i++) {
+    let cookie = ckies[i];
+    let [name, value] = cookie.split("=");
+    if (name === elem) {
+      return decodeURIComponent(value);
+    }
+  }
+  return null;
+})("lgrTkn");
+console.log(uni_sgntkn);
+
 (SgnpFuc = () => {
   const sgnpobsrvr = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -67,7 +81,7 @@ const sgnp_Home = document.querySelector(".contentsSec");
 
           //Switch from Signup to Login page
           lgnLinkBtn.addEventListener("click", () => {
-            fetch("/app/login", {
+            fetch("/open/lgnpg", {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
