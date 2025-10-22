@@ -15,6 +15,8 @@ let uni_nvbrtkn = ((elem) => {
   return null;
 })("lgrTkn");
 console.log(uni_nvbrtkn);
+const nvbrHeader = `Bearer ${uni_nvbrtkn}`;
+//all none gen and open url
 
 burgerBtn.addEventListener("click", () => {
   console.log("click");
@@ -57,7 +59,8 @@ profilePrev.addEventListener("click", () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      // 'Authorization': 'Bearer YOUR_TOKEN',
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnZW50a24iOiJnZW5lcmF0aXZlLnRva2VuIiwiaWF0IjoxNzYxMTEyNzYxfQ.jMtIDq2GVXIla3CIBSOvHDmq0Xc72LOaheXBXUUxBH0",
     },
   })
     .then((response) => response.text())

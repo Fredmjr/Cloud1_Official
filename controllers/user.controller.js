@@ -146,7 +146,6 @@ export const loginUrl = async (req, res) => {
                   phm: ifexists.phone,
                   eml: ifexists.email,
                 };
-                console.log(usrData);
                 const JWT = jwt.sign(usrData, process.env.SECRET_KEY, {
                   expiresIn: "24h",
                 });

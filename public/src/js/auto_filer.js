@@ -14,6 +14,6 @@
     return null;
   })("lgrTkn");
   console.log(uni_autotkn);
-
+  const autoHeader = `Bearer ${uni_autotkn}`;
   //The res of logic here
 })();

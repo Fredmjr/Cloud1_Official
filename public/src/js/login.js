@@ -104,7 +104,8 @@ const Home = document.querySelector(".contentsSec");
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
-                // 'Authorization': 'Bearer YOUR_TOKEN',
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnZW50a24iOiJnZW5lcmF0aXZlLnRva2VuIiwiaWF0IjoxNzYxMTEyNzYxfQ.jMtIDq2GVXIla3CIBSOvHDmq0Xc72LOaheXBXUUxBH0",
               },
             })
               .then((response) => response.text())

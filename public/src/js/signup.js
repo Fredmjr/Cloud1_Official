@@ -13,6 +13,7 @@ let uni_sgntkn = ((elem) => {
   return null;
 })("lgrTkn");
 console.log(uni_sgntkn);
+const sgnHeader = `Bearer ${uni_sgntkn}`;
 
 (SgnpFuc = () => {
   const sgnpobsrvr = new MutationObserver((mutations) => {

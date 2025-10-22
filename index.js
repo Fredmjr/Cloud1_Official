@@ -4,9 +4,11 @@ import userRouter from "./routes/user.routes.js";
 import appRouter from "./routes/app.routes.js";
 import assetRouter from "./routes/asset.routes.js";
 import openRouter from "./routes/open.routes.js";
+import { authorization } from "./middleware/auth/auth.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
+import { gentknoAuth } from "./middleware/auth/app.routes.auth.js";
 
 dotenv.config();
 const app = express();
@@ -23,9 +25,9 @@ app.set("/views", path.join(__dirname, "views", "components"));
 app.use(express.static("public"));
 
 //routes & comtrollers
-app.use("/app", appRouter);
-app.use("/usr", userRouter);
-app.use("/asset", assetRouter);
+app.use("/app", gentknoAuth, appRouter);
+app.use("/usr", /* authorization, */ userRouter);
+app.use("/asset", /* authorization, */ assetRouter);
 app.use("/open", openRouter);
 app.get("/", (req, res) => {
   res.render("index");
