@@ -16,6 +16,7 @@ import {
   stngspgUrl,
   dwnldpgUrl,
   hpsppgUrl,
+  authprflUrl,
 } from "../controllers/app.controller.js";
 
 const router = express.Router();
@@ -36,5 +37,6 @@ router.get("/dymdpg", dymdppUrl);
 router.get("/stngspg", stngspgUrl);
 router.get("/dwnldpg", dwnldpgUrl);
 router.get("/hpsppg", hpsppgUrl);
+router.post("/authprfl", authprflUrl);
 
 export default router;

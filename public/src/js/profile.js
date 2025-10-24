@@ -56,6 +56,7 @@ const prflHeader = `Bearer ${uni_pfltkn}`;
       .then((response) => response.json())
       .then((data) => {
         const drpusrnm = document.querySelector(".usrPrlusername");
+        const drpml = document.querySelector(".usrPrlEmail");
         console.log(data.usrnm, data.eml, data.phm);
         if (data.usrnm && data.eml) {
           drpusrnm.textContent = data.usrnm;
@@ -82,6 +83,7 @@ const prflHeader = `Bearer ${uni_pfltkn}`;
   const tknobj = {
     tkndata: tkn,
   };
+  const prfl_tkn = tkn;
 
   fetch("/open/gen", {
     method: "GET",
@@ -93,20 +95,21 @@ const prflHeader = `Bearer ${uni_pfltkn}`;
     .then((data) => {
       const gntkn = data.gentkn;
       const genHeader = `Bearer ${gntkn}`;
-      fetch("/usr/authprfl", {
+      fetch("/app/authprfl", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: prflHeader,
+          Authorization: genHeader,
         },
         body: JSON.stringify(tknobj),
       })
         .then((response) => response.json())
         .then((data) => {
           const profileMenu = document.querySelector(".profileMenu");
-          if (data.prflpg) {
-            //Profile page
-            profileMenu.addEventListener("click", () => {
+          profileMenu.addEventListener("click", () => {
+            if (data.prflpg) {
+              //Profile page
+
               fetch("/app/prflpg", {
                 method: "GET",
                 headers: {
@@ -124,10 +127,9 @@ const prflHeader = `Bearer ${uni_pfltkn}`;
                   }
                 })
                 .catch((error) => console.error(error));
-            });
-          } else if (data.erMgs) {
-            //Redirect to login page if no login tkn found
-            profileMenu.addEventListener("click", () => {
+            } else if (data.erMgs) {
+              //Redirect to login page if no login tkn found
+
               fetch("/open/lgnpg", {
                 method: "GET",
                 headers: {
@@ -141,8 +143,8 @@ const prflHeader = `Bearer ${uni_pfltkn}`;
                   contentsSec.innerHTML = data;
                 })
                 .catch((error) => console.error(error));
-            });
-          }
+            }
+          });
         })
         .catch((error) => console.error(error));
     })

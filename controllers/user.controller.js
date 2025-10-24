@@ -200,21 +200,3 @@ export const prflrUrl = async (req, res) => {
     console.log(err);
   }
 };
-
-//
-export const authprflUrl = async (req, res) => {
-  const { tkndata } = req.body;
-  try {
-    if (tkndata && tkndata !== "") {
-      res.json({
-        prflpg: "prflpg",
-      });
-    } else {
-      res.json({
-        erMgs: "lgpg",
-      });
-    }
-  } catch (err) {
-    console.log(err);
-  }
-};

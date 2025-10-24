@@ -65,3 +65,20 @@ export const dwnldpgUrl = async (req, res) => {
 export const hpsppgUrl = async (req, res) => {
   res.render("components/help_support");
 };
+//auto check if token is there, the universal token (bearer token) if (profile page) or not (login page)
+export const authprflUrl = async (req, res) => {
+  const { tkndata } = req.body;
+  try {
+    if (tkndata && tkndata !== "") {
+      res.json({
+        prflpg: "prflpg",
+      });
+    } else {
+      res.json({
+        erMgs: "lgpg",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};

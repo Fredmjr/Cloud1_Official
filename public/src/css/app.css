@@ -19,7 +19,7 @@ body {
   color: #ffffff;
   margin: 0px;
   font-family: reddir-light;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .welcomePage {
@@ -55,7 +55,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px 30px;
+  padding: 15px 30px;
   z-index: 10;
   position: fixed;
   top: 0px;
@@ -64,7 +64,13 @@ body {
   border-bottom: 1px solid #808d94;
   background-color: #15191b;
 }
-
+.fticonclass {
+  width: 22px;
+  filter: brightness(0) invert(1);
+}
+.cloud1LClass {
+  width: 37px;
+}
 .rightsider {
   display: flex;
   gap: 10px;
@@ -77,15 +83,25 @@ body {
   gap: 7px;
   align-items: center;
   padding: 3px;
+  cursor: pointer;
 }
 
+.linkBtn:hover {
+  color: wheat;
+}
+
+.burgerBtn {
+  cursor: pointer;
+  width: 24px;
+  filter: brightness(0) invert(1);
+}
 .toggleMenu {
   width: fit-content;
   height: fit-content;
   padding: 7px 15px;
-  font-size: 11px;
+  font-size: 12px;
   position: fixed;
-  top: 60px;
+  top: 72px;
   left: 0px;
   background-color: #15191b;
   border-bottom: 2px solid #e93d00;
@@ -111,47 +127,47 @@ body {
 
 /* Dropwon icons */
 .drpprflIcon {
-  width: 15;
+  width: 20px;
   filter: brightness(0) invert(1);
 }
 
-.dropsLinks {
-  width: 15;
+.sphpiconcl {
+  width: 20px;
   filter: brightness(0) invert(1);
 }
 
 .drpdwnldIcon {
-  width: 15;
+  width: 20px;
   filter: brightness(0) invert(1);
 }
 
 .drphpspIcon {
-  width: 15;
+  width: 22px;
   filter: brightness(0) invert(1);
 }
 
 .drpdaymdIcon {
-  width: 15;
+  width: 22px;
   filter: brightness(0) invert(1);
 }
 
 .drpmchtsIcon {
-  width: 15;
+  width: 20px;
   filter: brightness(0) invert(1);
 }
 
 .drpntfnlIcon {
-  width: 15;
+  width: 20px;
   filter: brightness(0) invert(1);
 }
 
 .drpstgsIcon {
-  width: 15;
+  width: 20px;
   filter: brightness(0) invert(1);
 }
 
 .drplgtIcon {
-  width: 15;
+  width: 20px;
   filter: brightness(0) invert(1);
 }
 
@@ -193,30 +209,41 @@ body {
   align-items: center;
 }
 
+.notifications {
+  cursor: pointer;
+}
 .loginBtn {
   color: #ffffff;
   background-color: #e93d00;
   border-radius: 40px;
   outline: none;
   border: none;
-  padding: 6px 12px;
+  padding: 8px 14px;
   font-family: reddir-regular;
+  cursor: pointer;
 }
 
 .profileMenu {
-  padding: 5px;
-  border: 1px solid #e93d00;
+  padding: 7px;
+  border: 2px solid #e93d00;
   border-radius: 50%;
   display: flex;
+  cursor: pointer;
 }
-
+.profileiconcl {
+  width: 22px;
+  filter: brightness(0) invert(1);
+}
 .contents {
-  padding: 40px 30px;
+  padding: 55px 30px;
   margin-bottom: 50px;
 }
 
 .contentsSec {
   padding: 30px 0px;
+}
+.loginPage {
+  margin-top: -10px;
 }
 
 /*LOGIN PAGE*/
@@ -240,6 +267,31 @@ input {
   color: white;
 }
 
+.librarySec {
+  cursor: pointer;
+  padding: 0px 6%;
+  padding-bottom: 5px;
+}
+
+.homeSec {
+  cursor: pointer;
+  padding: 0px 6%;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #e93e009b;
+  border-radius: 5px;
+  opacity: 2;
+}
+
+.searchSec {
+  cursor: pointer;
+  padding: 0px 6%;
+  padding-bottom: 5px;
+}
+
+.librarySec {
+  cursor: pointer;
+}
+
 /*floating Message cloud1 AI model*/
 .floatingMgs {
   overflow: hidden;
@@ -248,24 +300,25 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  padding: 20px;
   position: fixed;
   bottom: 90px;
   right: 30px;
   background-color: transparent;
-  border: 1px solid #e93d00;
+  border: 2px solid #e93d00;
   border-radius: 50%;
   background-color: #272626;
+  cursor: pointer;
 }
 
 /*footer section*/
 .footer {
-  font-size: 8px;
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 7px 30px;
-  gap: 25%;
+  padding: 12px 30px;
+  gap: 10%;
   position: fixed;
   bottom: 0px;
   left: 0;
@@ -276,6 +329,9 @@ input {
 
 .footerText {
   text-align: center;
+}
+#hmtext {
+  color: #e93d00;
 }
 
 .iconCss {
@@ -300,4 +356,19 @@ input {
 }
 .usrPrlusername {
   margin-bottom: -7px;
+}
+.homeiconcl {
+  filter: brightness(0) invert(1);
+  width: 27px;
+}
+.searchiconcl {
+  filter: brightness(0) invert(1);
+  width: 24px;
+}
+.libraryiconcl {
+  filter: brightness(0) invert(1);
+  width: 26px;
+}
+.logoIdjs {
+  width: 37px;
 }
