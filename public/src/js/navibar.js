@@ -55,18 +55,29 @@ linkBtn.forEach((btn, index) => {
 
 //prpfile page when proile btn clicked
 profilePrev.addEventListener("click", () => {
-  fetch("/app/prflpg", {
+  fetch("/open/gen", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnZW50a24iOiJnZW5lcmF0aXZlLnRva2VuIiwiaWF0IjoxNzYxMTEyNzYxfQ.jMtIDq2GVXIla3CIBSOvHDmq0Xc72LOaheXBXUUxBH0",
     },
   })
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((data) => {
-      const contentsSec = document.querySelector(".contentsSec");
-      contentsSec.innerHTML = data;
+      const gntkn = data.gentkn;
+      const genHeader = `Bearer ${gntkn}`;
+      fetch("/app/prflpg", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: genHeader,
+        },
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          const contentsSec = document.querySelector(".contentsSec");
+          contentsSec.innerHTML = data;
+        })
+        .catch((error) => console.error(error));
     })
     .catch((error) => console.error(error));
 });

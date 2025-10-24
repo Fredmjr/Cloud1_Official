@@ -44,40 +44,49 @@ const sgnHeader = `Bearer ${uni_sgntkn}`;
               pwd: sgnp_psswd_inpt.value,
               conf_pwd: sgnp_fmpsswd_inpt.value,
             };
-
-            //console.log("");
-
-            fetch("/usr/sgnp", {
-              method: "POST",
+            fetch("/open/4cf9b9c9-5b1d-479b-84db-5d90a7465204", {
+              method: "GET",
               headers: {
                 "Content-Type": "application/json",
-                // 'Authorization': 'Bearer YOUR_TOKEN',
               },
-              body: JSON.stringify(lgdata),
             })
               .then((response) => response.json())
               .then((data) => {
-                //erMgs.innerHTML = data;
-                //erMgs.style.display = "block";
-                if (data.erMgs) {
-                  console.log(data.erMgs);
-                  sgnp_ermgs.style.display = "block";
-                  sgnp_ermgs.innerHTML = data.erMgs;
-                  setTimeout(() => {
-                    sgnp_ermgs.style.display = "none";
-                  }, 3000);
-                } else if (data.jwtToken && data.redir) {
-                  const expires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 days
-                  document.cookie =
-                    `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
-                    `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`;
+                const intmtHeader = `Bearer ${data.intmdttkn}`;
+                //Signup url
+                fetch("/usr/sgnp", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: intmtHeader,
+                  },
+                  body: JSON.stringify(lgdata),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    if (data.erMgs) {
+                      console.log(data.erMgs);
+                      sgnp_ermgs.style.display = "block";
+                      sgnp_ermgs.innerHTML = data.erMgs;
+                      setTimeout(() => {
+                        sgnp_ermgs.style.display = "none";
+                      }, 3000);
+                    } else if (data.jwtToken && data.redir) {
+                      const expires = new Date(
+                        Date.now() + 24 * 60 * 60 * 1000
+                      ); // 24 days
+                      document.cookie =
+                        `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
+                        `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`;
 
-                  setInterval(() => {
-                    window.location.reload();
-                  }, 2000);
-                }
+                      setInterval(() => {
+                        window.location.reload();
+                      }, 2000);
+                    }
+                  })
+                  .catch((error) => console.log(error));
               })
-              .catch((error) => console.log(error));
+              .catch((error) => console.error("Error:", error));
           });
 
           //Switch from Signup to Login page
@@ -86,7 +95,6 @@ const sgnHeader = `Bearer ${uni_sgntkn}`;
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
-                // 'Authorization': 'Bearer YOUR_TOKEN',
               },
             })
               .then((response) => response.text())

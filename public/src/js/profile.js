@@ -49,12 +49,13 @@ const prflHeader = `Bearer ${uni_pfltkn}`;
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // 'Authorization': 'Bearer YOUR_TOKEN',
+        Authorization: prflHeader,
       },
       body: JSON.stringify(Tk_data),
     })
       .then((response) => response.json())
       .then((data) => {
+        const drpusrnm = document.querySelector(".usrPrlusername");
         console.log(data.usrnm, data.eml, data.phm);
         if (data.usrnm && data.eml) {
           drpusrnm.textContent = data.usrnm;
@@ -82,57 +83,68 @@ const prflHeader = `Bearer ${uni_pfltkn}`;
     tkndata: tkn,
   };
 
-  fetch("/usr/authprfl", {
-    method: "POST",
+  fetch("/open/gen", {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
-      // 'Authorization': 'Bearer YOUR_TOKEN',
     },
-    body: JSON.stringify(tknobj),
   })
     .then((response) => response.json())
     .then((data) => {
-      const profileMenu = document.querySelector(".profileMenu");
-      if (data.prflpg) {
-        //Profile page
-        profileMenu.addEventListener("click", () => {
-          fetch("/app/prflpg", {
-            method: "GET",
-            headers: {
-              /*  "Content-Type": "application/json", */
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnZW50a24iOiJnZW5lcmF0aXZlLnRva2VuIiwiaWF0IjoxNzYxMTEyNzYxfQ.jMtIDq2GVXIla3CIBSOvHDmq0Xc72LOaheXBXUUxBH0",
-            },
-          })
-            .then((response) => response.text())
-            .then((data) => {
-              const contentsSec = document.querySelector(".contentsSec");
-              contentsSec.innerHTML = data;
+      const gntkn = data.gentkn;
+      const genHeader = `Bearer ${gntkn}`;
+      fetch("/usr/authprfl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: prflHeader,
+        },
+        body: JSON.stringify(tknobj),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const profileMenu = document.querySelector(".profileMenu");
+          if (data.prflpg) {
+            //Profile page
+            profileMenu.addEventListener("click", () => {
+              fetch("/app/prflpg", {
+                method: "GET",
+                headers: {
+                  /*  "Content-Type": "application/json", */
+                  Authorization: genHeader,
+                },
+              })
+                .then((response) => response.text())
+                .then((data) => {
+                  const contentsSec = document.querySelector(".contentsSec");
+                  contentsSec.innerHTML = data;
 
-              if (data.oauthMgs) {
-                console.log(data.oauthMgs);
-              }
-            })
-            .catch((error) => console.error(error));
-        });
-      } else if (data.erMgs) {
-        //Redirect to login page if no login tkn found
-        profileMenu.addEventListener("click", () => {
-          fetch("/open/lgnpg", {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              // 'Authorization': 'Bearer YOUR_TOKEN',
-            },
-          })
-            .then((response) => response.text())
-            .then((data) => {
-              const contentsSec = document.querySelector(".contentsSec");
-              contentsSec.innerHTML = data;
-            })
-            .catch((error) => console.error(error));
-        });
-      }
+                  if (data.oauthMgs) {
+                    console.log(data.oauthMgs);
+                  }
+                })
+                .catch((error) => console.error(error));
+            });
+          } else if (data.erMgs) {
+            //Redirect to login page if no login tkn found
+            profileMenu.addEventListener("click", () => {
+              fetch("/open/lgnpg", {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                  // 'Authorization': 'Bearer YOUR_TOKEN',
+                },
+              })
+                .then((response) => response.text())
+                .then((data) => {
+                  const contentsSec = document.querySelector(".contentsSec");
+                  contentsSec.innerHTML = data;
+                })
+                .catch((error) => console.error(error));
+            });
+          }
+        })
+        .catch((error) => console.error(error));
     })
     .catch((error) => console.error(error));
 })();

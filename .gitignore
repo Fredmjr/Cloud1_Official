@@ -5,3 +5,5 @@ node-gyp-build
 .node-gyp-build
 .env
 env
+./cloud1_documentations
+cloud1_documentations

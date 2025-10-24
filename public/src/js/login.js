@@ -17,6 +17,8 @@ const Home = document.querySelector(".contentsSec");
   })("lgrTkn");
   console.log(uni_logintkn);
 
+  //gen
+
   const lgpgobsrvr = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
@@ -57,41 +59,54 @@ const Home = document.querySelector(".contentsSec");
             };
 
             console.log(lgdata);
-
-            fetch("/usr/lgn", {
-              method: "POST",
+            fetch("/open/4cf9b9c9-5b1d-479b-84db-5d90a7465204", {
+              method: "GET",
               headers: {
                 "Content-Type": "application/json",
-                // 'Authorization': 'Bearer YOUR_TOKEN',
               },
-              body: JSON.stringify(lgdata),
             })
               .then((response) => response.json())
               .then((data) => {
-                //erMgs.innerHTML = data;
-                //erMgs.style.display = "block";
-                if (data.erMgs) {
-                  console.log(data.erMgs);
-                  lgn_erMgs_pnl.innerHTML = data.erMgs;
-                  lgn_erMgs_pnl.style.display = "block";
-                  setTimeout(() => {
-                    lgn_erMgs_pnl.style.display = "none";
-                  }, 3000);
-                } else if (data.jwtToken) {
-                  console.log(data.jwtToken);
-                  //Setup Token
-                  const expires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 7 days
-                  document.cookie =
-                    `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
-                    `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`; //
+                const intmtHeader = `Bearer ${data.intmdttkn}`;
 
-                  console.log(data.jwtToken);
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 2000);
-                }
+                fetch("/usr/lgn", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: intmtHeader,
+                  },
+                  body: JSON.stringify(lgdata),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    //erMgs.innerHTML = data;
+                    //erMgs.style.display = "block";
+                    if (data.erMgs) {
+                      console.log(data.erMgs);
+                      lgn_erMgs_pnl.innerHTML = data.erMgs;
+                      lgn_erMgs_pnl.style.display = "block";
+                      setTimeout(() => {
+                        lgn_erMgs_pnl.style.display = "none";
+                      }, 3000);
+                    } else if (data.jwtToken) {
+                      console.log(data.jwtToken);
+                      //Setup Token
+                      const expires = new Date(
+                        Date.now() + 24 * 60 * 60 * 1000
+                      ); // 7 days
+                      document.cookie =
+                        `lgrTkn=${encodeURIComponent(data.jwtToken)};` +
+                        `Secure; SameSite=Strict; expires=${expires.toUTCString()}; path=/`; //
+
+                      console.log(data.jwtToken);
+                      setTimeout(() => {
+                        window.location.reload();
+                      }, 2000);
+                    }
+                  })
+                  .catch((error) => console.log(error));
               })
-              .catch((error) => console.log(error));
+              .catch((error) => console.error(error));
 
             if (sgnpLink) {
               console.log("here");
@@ -100,18 +115,29 @@ const Home = document.querySelector(".contentsSec");
 
           //Forgot password URL
           frgtLinkBtn.addEventListener("click", () => {
-            fetch("/app/frgtpss", {
+            fetch("/open/gen", {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
-                Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJnZW50a24iOiJnZW5lcmF0aXZlLnRva2VuIiwiaWF0IjoxNzYxMTEyNzYxfQ.jMtIDq2GVXIla3CIBSOvHDmq0Xc72LOaheXBXUUxBH0",
               },
             })
-              .then((response) => response.text())
+              .then((response) => response.json())
               .then((data) => {
-                const contentsSec = document.querySelector(".contentsSec");
-                contentsSec.innerHTML = data;
+                const gntkn = data.gentkn;
+                const genHeader = `Bearer ${gntkn}`;
+                fetch("/app/frgtpss", {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: genHeader,
+                  },
+                })
+                  .then((response) => response.text())
+                  .then((data) => {
+                    const contentsSec = document.querySelector(".contentsSec");
+                    contentsSec.innerHTML = data;
+                  })
+                  .catch((error) => console.error("Error:", error));
               })
               .catch((error) => console.error("Error:", error));
           });
