@@ -69,7 +69,7 @@ body {
   filter: brightness(0) invert(1);
 }
 .cloud1LClass {
-  width: 37px;
+  width: 50px;
 }
 .rightsider {
   display: flex;
@@ -277,7 +277,7 @@ input {
   cursor: pointer;
   padding: 0px 6%;
   padding-bottom: 5px;
-  border-bottom: 2px solid #e93e009b;
+  /* border-bottom: 2px solid #e93e009b; */
   border-radius: 5px;
   opacity: 2;
 }
