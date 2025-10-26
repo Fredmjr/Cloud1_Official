@@ -4,11 +4,11 @@ Cloud1_Official is a repo for a social cultural newtwork app.
 
 Faturess include: world wide cultural based skills,
 
-    - telents,
-    - arts,
-    - music,
-    - education, etc.
-    In short its a social ntework based on culture sharing.
+- telents,
+- arts,
+- music,
+- education, etc.
+  In short its a social ntework based on culture sharing.
 
 CONDITIONS:
 create a .env file with following contents:
