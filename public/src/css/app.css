@@ -68,6 +68,17 @@ body {
   width: 22px;
   filter: brightness(0) invert(1);
 }
+.meniconcss {
+  width: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.floatingClsBtnIcon {
+  width: 11px;
+  padding: 10px;
+  filter: brightness(0) invert(1);
+}
+
 .cloud1LClass {
   width: 37px;
 }
@@ -231,7 +242,7 @@ body {
   cursor: pointer;
 }
 .profileiconcl {
-  width: 22px;
+  width: 18px;
   filter: brightness(0) invert(1);
 }
 .contents {
@@ -267,31 +278,47 @@ input {
   color: white;
 }
 
-.librarySec {
-  cursor: pointer;
-  padding: 0px 6%;
-  padding-bottom: 5px;
-}
-
 .homeSec {
   cursor: pointer;
-  padding: 0px 6%;
-  padding-bottom: 5px;
-  /* border-bottom: 2px solid #e93e009b; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 100%;
   border-radius: 5px;
-  opacity: 2;
+  background-color: #2726264e;
 }
 
 .searchSec {
   cursor: pointer;
-  padding: 0px 6%;
-  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #2726264e;
 }
 
 .librarySec {
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #2726264e;
 }
-
 /*floating Message cloud1 AI model*/
 .floatingMgs {
   overflow: hidden;
@@ -309,6 +336,107 @@ input {
   border-radius: 50%;
   background-color: #272626;
   cursor: pointer;
+}
+.floatinghiddenmenu {
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  position: fixed;
+  bottom: 170px;
+  right: 40px;
+  border: 2px solid #e93d00;
+  border-radius: 50%;
+  background-color: #272626;
+  cursor: pointer;
+}
+
+.floathdnmenu {
+  width: 25px;
+  filter: brightness(0) invert(1);
+}
+.floatingMenu {
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+  position: fixed;
+  bottom: 170px;
+  right: 30px;
+  border-radius: 10px;
+  background-color: #2726267a;
+  border: 2px solid #e93d00;
+}
+.menFloatscl {
+  padding: 7px;
+}
+
+.floatingClsBtn {
+  bottom: 300px;
+  right: 48px;
+  position: fixed;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: #272626;
+  border: 2px solid #808d94;
+  z-index: 10;
+}
+/* drawer section */
+.footerdrawer {
+  position: fixed;
+  margin: 0 50px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background-color: #15191b;
+  filter: blur(4);
+  height: fit-content;
+}
+.ftdwr_a {
+  width: 25px;
+  filter: brightness(0) invert(1);
+  margin: 0px 10px;
+}
+.ftdwr {
+  filter: brightness(1) invert(0);
+  width: 14px;
+}
+.dwrLinkcl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #2726264e;
+}
+
+.dwrcntnts {
+  height: 0;
+  display: none;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
+  padding: 0px 15px;
+}
+.dwrcntnts.open {
+  display: block;
+  height: 40vh;
+}
+
+.ftdwrhndle {
+  width: 100%;
+  background-color: #e93d00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 1px 0px;
 }
 
 /*footer section*/

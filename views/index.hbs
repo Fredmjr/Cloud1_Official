@@ -40,6 +40,7 @@
 
         </div>
       </div>
+      {{! Navibar section }}
       <div class="naviBar">
         <span class="leftsider">
           <span class="menuBtn">
@@ -149,24 +150,17 @@
           <span>
             <button class="loginBtn">Log In</button>
           </span>
-          <!--
-                <span class="cloud1Logo">
-          <img id="logoId" class="logoIdjs" src="/assets/logos/cloud1/CLOUD1-HEAD.png" width="60">
-        </span>
-       -->
           <span class="notifications">
             <img src="/assets/icons/notification.png" class="fticonclass" />
           </span>
-          <!--
-        <span class="aiModel">
-          <img src="/assets/icons/live-chat (1).png" width="70" style="filter: brightness(0) invert(1);">
-        </span> -->
 
           <span class="profileMenu">
             <img src="/assets/icons/user (1).png" class="profileiconcl" />
           </span>
         </span>
       </div>
+
+      {{! Contents section }}
       <div class="contents">
         <div class="contentsSec">
 
@@ -178,38 +172,30 @@
         </div>
       </div>
 
-      <div class="footer">
-        <div class="floatingMgs">
-          <span class="cloud1Logo">
-            <img
-              id="logoId"
-              class="logoIdjs"
-              src="/assets/logos/cloud1/CLOUD1-HEAD.png"
-            />
-          </span>
+      {{! Footer }}
+      <div class="footerdrawer">
+
+        <div class="ftdwrhndle">
+          <img src="/assets/icons/caret-down.png" class="ftdwr" /></div>
+        <div class="dwrcntnts">
+          <div class="homeSec">
+            <img src="/assets/icons/home.png" class="ftdwr_a" />
+            <span>Home section</span>
+          </div>
+          <div class="librarySec">
+            <img src="/assets/icons/book.png" class="ftdwr_a" />
+            <span>Cultural Library/Archive</span>
+          </div>
+          <div class="searchSec">
+            <img src="/assets/icons/search.png" class="ftdwr_a" />
+            <span>Search</span>
+          </div>
         </div>
-        <span class="librarySec">
-          <div class="iconCss"><img
-              src="/assets/icons/book.png"
-              class="libraryiconcl"
-            /></div>
-          <span class="footerText" id="libtext">Library</span>
-        </span>
-        <span class="homeSec">
-          <div class="iconCss"><img
-              src="/assets/icons/home.png"
-              class="homeiconcl"
-            /></div>
-          <span class="footerText" id="hmtext">Home</span>
-        </span>
-        <span class="searchSec">
-          <div class="iconCss"><img
-              src="/assets/icons/search.png"
-              class="searchiconcl"
-            /></div>
-          <span class="footerText" id="srchtext">Search</span>
-        </span>
       </div>
+      {{!       <div class="footer">
+
+        <p>somethingh</p>
+      </div> }}
     </div>
 
     <script defer src="dist/js/app.js"></script>
@@ -218,6 +204,8 @@
     <script defer src="dist/js/profile.js"></script>
     <script defer src="dist/js/navibar.js"></script>
     <script defer src="dist/js/auto_filer.js"></script>
+    <script defer src="dist/js/subcontents.js"></script>
     <script defer src="dist/js/welcome.mgs.js"></script>
+
   </body>
 </html>

@@ -97,7 +97,7 @@ const contentsSec = document.querySelector(".contentsSec");
       //This section is in profile.js
 
       //cloud1AImodel section
-      floatingMgs.addEventListener("click", () => {
+      /*       floatingMgs.addEventListener("click", () => {
         fetch("/app/cloud1AImodel", {
           method: "GET",
           headers: {
@@ -109,7 +109,7 @@ const contentsSec = document.querySelector(".contentsSec");
             contentsSec.innerHTML = data;
           })
           .catch((error) => console.error("Error:", error));
-      });
+      }); */
 
       //librarySec section
       librarySec.addEventListener("click", () => {
@@ -128,8 +128,6 @@ const contentsSec = document.querySelector(".contentsSec");
 
       //home section by click
       homeSec.addEventListener("click", () => {
-        /* homeFuc(); */
-
         fetch("/app/home", {
           method: "GET",
           headers: {
