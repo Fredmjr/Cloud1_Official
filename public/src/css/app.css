@@ -80,8 +80,13 @@ body {
 }
 
 .cloud1LClass {
+  width: 50px;
+}
+
+.nvbrcloud1L {
   width: 37px;
 }
+
 .rightsider {
   display: flex;
   gap: 10px;
@@ -93,7 +98,7 @@ body {
   display: flex;
   gap: 7px;
   align-items: center;
-  padding: 3px;
+  padding: 5px 7px;
   cursor: pointer;
 }
 
@@ -112,7 +117,7 @@ body {
   padding: 7px 15px;
   font-size: 12px;
   position: fixed;
-  top: 72px;
+  top: 55px;
   left: 0px;
   background-color: #15191b;
   border-bottom: 2px solid #e93d00;
@@ -246,12 +251,12 @@ body {
   filter: brightness(0) invert(1);
 }
 .contents {
-  padding: 55px 30px;
+  padding: 50px 30px;
   margin-bottom: 50px;
 }
 
 .contentsSec {
-  padding: 30px 0px;
+  padding: 20px 0px;
 }
 .loginPage {
   margin-top: -10px;
@@ -277,22 +282,15 @@ body {
 input {
   color: white;
 }
-
-.homeSec {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+.drplnbrkr {
+  background-color: #808d94;
   width: 100%;
+  height: 1px;
   border-radius: 5px;
-  background-color: #2726264e;
+  opacity: 30%;
 }
 
-.searchSec {
+/* .homeSec {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -304,9 +302,53 @@ input {
   width: 100%;
   border-radius: 5px;
   background-color: #2726264e;
+} */
+.homeSec {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding: 5px 7px;
+  cursor: pointer;
+}
+.homeSec:hover {
+  color: wheat;
+}
+
+/* .searchSec {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #2726264e;
+} */
+.searchSec {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding: 5px 7px;
+  cursor: pointer;
+}
+.searchSec:hover {
+  color: wheat;
 }
 
 .librarySec {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding: 5px 7px;
+  cursor: pointer;
+}
+.librarySec:hover {
+  color: wheat;
+}
+/* .librarySec {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -318,7 +360,7 @@ input {
   width: 100%;
   border-radius: 5px;
   background-color: #2726264e;
-}
+} */
 /*floating Message cloud1 AI model*/
 .floatingMgs {
   overflow: hidden;
@@ -395,7 +437,7 @@ input {
   height: fit-content;
 }
 .ftdwr_a {
-  width: 25px;
+  width: 20px;
   filter: brightness(0) invert(1);
   margin: 0px 10px;
 }
@@ -427,7 +469,16 @@ input {
   display: block;
   height: 40vh;
 }
-
+.newdrwrconts {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cmingsoonPnl {
+  display: none;
+}
 .ftdwrhndle {
   width: 100%;
   background-color: #e93d00;

@@ -10,6 +10,7 @@
     <link href="src/css/app.css" rel="stylesheet" />
     <link href="src/css/login.css" rel="stylesheet" />
     <link href="src/css/signup.css" rel="stylesheet" />
+    <link href="src/css/psude_effects.css" rel="stylesheet" />
     <title>Cloud1</title>
   </head>
   <body>
@@ -67,7 +68,28 @@
                   <p class="usrPrlEmail">cloud1guest@gmail.com</p>
                 </span>
               </div>
-
+              <p class="homeSec" id="drppflBtnef">
+                <span>
+                  <img
+                    class="drpprflIcon"
+                    src="/assets/icons/home.png"
+                  /></span>
+                Home</p>
+              <p class="librarySec" id="drppflBtne">
+                <span>
+                  <img
+                    class="drpprflIcon"
+                    src="/assets/icons/book.png"
+                  /></span>
+                Library</p>
+              <p class="searchSec" id="drppflBtnw">
+                <span>
+                  <img
+                    class="drpprflIcon"
+                    src="/assets/icons/search.png"
+                  /></span>
+                Search</p>
+              <div class="drplnbrkr"></div>
               <p class="linkBtn" id="drppflBtn">
                 <span>
                   <img
@@ -89,6 +111,7 @@
                     src="/assets/icons/compass.png"
                   /></span>
                 Explore</p>
+              <div class="drplnbrkr"></div>
               <p class="linkBtn" id="drpdaymdBtn">
                 <span>
                   <img
@@ -139,7 +162,7 @@
           <span class="cloud1L">
             <img
               id="cloud1LId"
-              class="cloud1LClass"
+              class="nvbrcloud1L"
               src="/assets/logos/cloud1-rebrand/cloud1-logo-rebrand-mix-orange.png"
             />
           </span>
@@ -176,21 +199,35 @@
       <div class="footerdrawer">
 
         <div class="ftdwrhndle">
-          <img src="/assets/icons/caret-down.png" class="ftdwr" /></div>
+          <img src="/assets/icons/caret-down.png" class="ftdwr" />
+        </div>
+        {{! Current drawer contents }}
+
         <div class="dwrcntnts">
-          <div class="homeSec">
+          <div class="newdrwrconts">
+            <img
+              src="/assets/icons/loading.gif"
+              width="30"
+              style="filter: brightness(0) invert(1);"
+            />
+          </div>
+
+        </div>
+        {{! previous drawer contentss - add the class name thats on Current drawer contents to allow js to integrate with the drawer}}
+        {{!  <div >
+          <div >
             <img src="/assets/icons/home.png" class="ftdwr_a" />
             <span>Home section</span>
           </div>
-          <div class="librarySec">
+          <div >
             <img src="/assets/icons/book.png" class="ftdwr_a" />
             <span>Cultural Library/Archive</span>
           </div>
-          <div class="searchSec">
+          <div >
             <img src="/assets/icons/search.png" class="ftdwr_a" />
             <span>Search</span>
           </div>
-        </div>
+        </div> }}
       </div>
       {{!       <div class="footer">
 
