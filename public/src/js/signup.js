@@ -1,4 +1,5 @@
 const sgnp_Home = document.querySelector(".contentsSec");
+const Home = document.querySelector(".contentsSec");
 
 //Universal Bearer url token
 let uni_sgntkn = ((elem) => {
@@ -110,4 +111,56 @@ const sgnHeader = `Bearer ${uni_sgntkn}`;
   });
 
   sgnpobsrvr.observe(sgnp_Home, { childList: true, subtree: true });
+})();
+
+//signup page mutational elems and events
+(() => {
+  const sgnpBtnseventsbsrvr = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        //toggle1
+        const node_sgnppwdtoggleicn1 = node.matches?.(".sgnppwdtoggleicn1")
+          ? node
+          : node.querySelector?.(".sgnppwdtoggleicn1");
+        const node_sgnp_psswd_inpt = node.matches?.(".sgnp_psswd_inpt")
+          ? node
+          : node.querySelector?.(".sgnp_psswd_inpt");
+
+        //toggle2
+        const node_sgnppwdtoggleicn2 = node.matches?.(".sgnppwdtoggleicn2")
+          ? node
+          : node.querySelector?.(".sgnppwdtoggleicn2");
+        const node_sgnp_fmpsswd_inpt = node.matches?.(".sgnp_fmpsswd_inpt")
+          ? node
+          : node.querySelector?.(".sgnp_fmpsswd_inpt");
+        //toggler 1
+        if (node_sgnppwdtoggleicn1) {
+          node_sgnppwdtoggleicn1.addEventListener("click", () => {
+            //toggle show and hide pwd
+            if (node_sgnp_psswd_inpt.type === "password") {
+              node_sgnp_psswd_inpt.type = "text";
+            } else {
+              node_sgnp_psswd_inpt.type = "password";
+            }
+          });
+        }
+
+        //toggler 2
+        if (node_sgnppwdtoggleicn2) {
+          node_sgnppwdtoggleicn2.addEventListener("click", () => {
+            //toggle show and hide pwd
+            if (node_sgnp_fmpsswd_inpt.type === "password") {
+              node_sgnp_fmpsswd_inpt.type = "text";
+            } else {
+              node_sgnp_fmpsswd_inpt.type = "password";
+            }
+          });
+        }
+
+        //
+      });
+    });
+  });
+
+  sgnpBtnseventsbsrvr.observe(Home, { childList: true, subtree: true });
 })();

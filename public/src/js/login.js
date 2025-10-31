@@ -148,3 +148,33 @@ const Home = document.querySelector(".contentsSec");
 
   lgpgobsrvr.observe(Home, { childList: true, subtree: true });
 })();
+
+//Login page mutational elems and events
+(() => {
+  const lgBtnseventsbsrvr = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        //pwd toggle visibility button
+        const node_pwdtoggleicn = node.matches?.(".pwdtoggleicn")
+          ? node
+          : node.querySelector?.(".pwdtoggleicn");
+        const nodelgn_psswd_inpt = node.matches?.(".lgn_psswd_inpt")
+          ? node
+          : node.querySelector?.(".lgn_psswd_inpt");
+        if (node_pwdtoggleicn) {
+          node_pwdtoggleicn.addEventListener("click", () => {
+            //toggle show and hide pwd
+            if (nodelgn_psswd_inpt.type === "password") {
+              nodelgn_psswd_inpt.type = "text";
+            } else {
+              nodelgn_psswd_inpt.type = "password";
+            }
+          });
+        }
+        //
+      });
+    });
+  });
+
+  lgBtnseventsbsrvr.observe(Home, { childList: true, subtree: true });
+})();

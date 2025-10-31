@@ -25,3 +25,19 @@
 .frgtLinkBtn {
   color: #f5deb3;
 }
+.sgnup_pwd {
+  display: flex;
+  align-items: center;
+}
+.sgnppwdtoggleicn1 {
+  width: 20px;
+  filter: brightness(0) invert(1);
+}
+.sgnppwdtoggleicn2 {
+  width: 20px;
+  filter: brightness(0) invert(1);
+}
+.sgnup_pwd {
+  display: flex;
+  align-items: center;
+}
