@@ -55,7 +55,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 12px 30px;
   z-index: 10;
   position: fixed;
   top: 0px;
@@ -113,15 +113,20 @@ body {
 }
 .toggleMenu {
   width: fit-content;
-  height: fit-content;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  overflow-y: auto;
   padding: 7px 15px;
   font-size: 12px;
   position: fixed;
-  top: 55px;
+  top: 59px;
   left: 0px;
   background-color: #15191b;
-  border-bottom: 2px solid #e93d00;
+  border-bottom: 3px solid #e93d00;
+  height: 75vh;
+  border-bottom-right-radius: 5px;
 }
+
 .prlusrIcon {
   padding: 3px;
   border-radius: 50%;
@@ -238,7 +243,9 @@ body {
   font-family: reddir-regular;
   cursor: pointer;
 }
-
+#dropsFootVers {
+  color: wheat;
+}
 .profileMenu {
   padding: 5px;
   border: 2px solid #e93d00;
@@ -443,7 +450,7 @@ input {
 }
 .ftdwr {
   filter: brightness(1) invert(0);
-  width: 14px;
+  width: 10px;
 }
 .dwrLinkcl {
   display: flex;
@@ -487,7 +494,7 @@ input {
   align-items: center;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  padding: 1px 0px;
+  padding: 0px 0px;
 }
 
 /*footer section*/
