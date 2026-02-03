@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/js/welcome.mgs.js"],
+  "sourcesContent": ["const welcomePage = document.querySelector(\".welcomePage\");\r\n//welcome page with logo\r\nsetTimeout(() => {\r\n  welcomePage.style.display = \"none\";\r\n}, 1500);\r\n"],
+  "mappings": "AAAA,IAAMA,EAAc,SAAS,cAAc,cAAc,EAEzD,WAAW,IAAM,CACfA,EAAY,MAAM,QAAU,MAC9B,EAAG,IAAI",
+  "names": ["welcomePage"]
+}

@@ -1,0 +1,2 @@
+var n=document.querySelector(".ftdwrhndle");n.addEventListener("click",()=>{let e=document.querySelector(".dwrcntnts");!e.classList.contains("open")?(e.style.display="block",setTimeout(()=>{e.classList.add("open")},10)):(e.classList.remove("open"),setTimeout(()=>{e.style.display="none"},1e3))});document.addEventListener("click",e=>{let t=document.querySelector(".dwrcntnts");document.querySelector(".ftdwrhndle").contains(e.target)||(t.classList.remove("open"),setTimeout(()=>{t.style.display="none"},1e3))});
+//# sourceMappingURL=subcontents.js.map

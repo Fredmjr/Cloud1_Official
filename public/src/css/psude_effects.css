@@ -1,0 +1,22 @@
+/* Removed css default background color when elem clicked */
+/* button:active,
+button:focus,
+div:active,
+div:focus,
+span:active,
+span:focus,
+p:active,
+p:focus {
+  background-color: transparent;
+}
+ */
+
+.ftdwrhndle:active,
+.ftdwrhndle:focus {
+  background-color: #e93d00;
+}
+
+.loginBtn:active,
+.loginBtn:focus {
+  background-color: #e93d00;
+}
